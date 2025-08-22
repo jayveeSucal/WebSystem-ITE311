@@ -15,8 +15,8 @@
     </nav>
     <div class="container mt-5">
         <div class="card bg-dark text-light p-4">
-            <h1 class="mb-4">Welcome to My Simple Bootstrap Dark Page</h1>
-            <p>This is a basic template using Bootstrap 5 with a dark theme.</p>
+            <h1 class="mb-4">Welcome to My Simple Bootstrap</h1>
+            <p>This is a basic template using Bootstrap.</p>
             <button class="btn btn-success">Click Me</button>
         </div>
     </div>
