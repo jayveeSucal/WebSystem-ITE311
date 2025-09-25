@@ -1,3 +1,14 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # Adjust this to your folder name under htdocs
+    RewriteBase /ITE311-BAJARIAS/
+
+    # If the requested resource doesn't exist, route everything to index.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule>
+
 # Disable directory browsing
 Options -Indexes
 
