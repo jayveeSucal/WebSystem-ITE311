@@ -9,16 +9,7 @@
 </head>
 <body class="bg-dark text-light">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container">
-        <a class="navbar-brand" href="<?= site_url('/') ?>">Site</a>
-        <div>
-            <a href="<?= site_url('/') ?>" class="btn btn-outline-light me-2">Home</a>
-            <a href="<?= site_url('/about') ?>" class="btn btn-outline-light me-2">About</a>
-            <a href="<?= site_url('/contact') ?>" class="btn btn-outline-light">Contact</a>
-        </div>
-    </div>
-</nav>
+<?= $this->include('templates/header') ?>
 
 <div class="container mt-5">
     <div class="card bg-dark text-light p-4">
