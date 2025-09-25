@@ -8,32 +8,41 @@ class Auth extends BaseController
     public function login()
     {
         $session = session();
+        if ($this->request->getMethod(true) === 'POST') {
+            $email = trim((string) $this->request->getPost('email'));
+            $password = (string) $this->request->getPost('password');
+
+            $userModel = new \App\Models\UserModel();
+            $user = $userModel->where('email', $email)->first();
+            if ($user && password_verify($password, $user['password'])) {
+                // Normalize role values to supported set
+                $rawRole = (string) ($user['role'] ?? 'student');
+                $normalizedRole = $rawRole;
+                if ($rawRole === 'instructor') {
+                    $normalizedRole = 'teacher';
+                }
+                if (! in_array($normalizedRole, ['admin', 'teacher', 'student'], true)) {
+                    $normalizedRole = 'student';
+                }
+                $session->regenerate();
+                $session->set([
+                    'isLoggedIn' => true,
+                    'userId' => $user['id'] ?? null,
+                    'userEmail' => $user['email'],
+                    'userName' => $user['name'] ?? null,
+                    'userRole' => $normalizedRole,
+                ]);
+                return redirect()->to(site_url('/dashboard'));
+            }
+
+            return redirect()->back()->with('login_error', 'Invalid credentials');
+        }
+
         if ($session->get('isLoggedIn')) {
             return redirect()->to(base_url('dashboard'));
         }
 
-        return view('login');
-    }
-
-    public function attempt()
-    {
-        $request = $this->request;
-        $email = trim((string) $request->getPost('email'));
-        $password = (string) $request->getPost('password');
-
-        // Try database user first
-        $userModel = new \App\Models\UserModel();
-        $user = $userModel->where('email', $email)->first();
-        if ($user && password_verify($password, $user['password'])) {
-            $session = session();
-            $session->set([
-                'isLoggedIn' => true,
-                'userEmail' => $email,
-            ]);
-            return redirect()->to(base_url('dashboard'));
-        }
-
-        return redirect()->back()->with('login_error', 'Invalid credentials');
+        return view('auth/login');
     }
 
     public function logout()
@@ -46,55 +55,95 @@ class Auth extends BaseController
     public function register()
     {
         $session = session();
+        if ($this->request->getMethod(true) === 'POST') {
+            $name = trim((string) $this->request->getPost('name'));
+            $email = trim((string) $this->request->getPost('email'));
+            $password = (string) $this->request->getPost('password');
+            $passwordConfirm = (string) $this->request->getPost('password_confirm');
+
+            if ($name === '' || $email === '' || $password === '' || $passwordConfirm === '') {
+                return redirect()->back()->withInput()->with('register_error', 'All fields are required.');
+            }
+
+            if (! filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                return redirect()->back()->withInput()->with('register_error', 'Invalid email address.');
+            }
+
+            if ($password !== $passwordConfirm) {
+                return redirect()->back()->withInput()->with('register_error', 'Passwords do not match.');
+            }
+
+            $userModel = new \App\Models\UserModel();
+
+            if ($userModel->where('email', $email)->first()) {
+                return redirect()->back()->withInput()->with('register_error', 'Email is already registered.');
+            }
+
+            $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+
+            $userId = $userModel->insert([
+                'name' => $name,
+                'email' => $email,
+                'role' => 'student',
+                'password' => $passwordHash,
+            ], true);
+
+            if (! $userId) {
+                return redirect()->back()->withInput()->with('register_error', 'Registration failed.');
+            }
+
+            return redirect()
+                ->to(base_url('login'))
+                ->with('register_success', 'Account created successfully. Please log in.');
+        }
+
         if ($session->get('isLoggedIn')) {
             return redirect()->to(base_url('dashboard'));
         }
 
-        return view('register');
+        return view('auth/register');
     }
 
-    public function store()
+    public function dashboard()
     {
-        $name = trim((string) $this->request->getPost('name'));
-        $email = trim((string) $this->request->getPost('email'));
-        $password = (string) $this->request->getPost('password');
-        $passwordConfirm = (string) $this->request->getPost('password_confirm');
-
-        if ($name === '' || $email === '' || $password === '' || $passwordConfirm === '') {
-            return redirect()->back()->withInput()->with('register_error', 'All fields are required.');
+        $session = session();
+        if (! $session->get('isLoggedIn')) {
+            return redirect()->to(base_url('login'));
         }
 
-        if (! filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            return redirect()->back()->withInput()->with('register_error', 'Invalid email address.');
+        $role = (string) $session->get('userRole');
+        if ($role === 'instructor') {
+            $role = 'teacher';
+        }
+        if (! in_array($role, ['admin', 'teacher', 'student'], true)) {
+            $role = 'student';
+        }
+        $data = [
+            'title' => 'Dashboard',
+            'role' => $role,
+            'user' => [
+                'name' => $session->get('userName'),
+                'email' => $session->get('userEmail'),
+            ],
+            // Placeholder role-specific data
+            'stats' => [
+                'admin' => [ 'usersTotal' => null, 'coursesTotal' => null ],
+                'teacher' => [ 'myCourses' => [], 'pendingSubmissions' => 0 ],
+                'student' => [ 'enrolledCourses' => [], 'notifications' => 0 ],
+            ],
+        ];
+
+        // Example of role-based data loading (stub; adjust to your schema)
+        try {
+            $userModel = new \App\Models\UserModel();
+            if ($role === 'admin') {
+                $data['stats']['admin']['usersTotal'] = $userModel->countAllResults();
+            }
+        } catch (\Throwable $e) {
+            // Silently continue for now; keep dashboard functional without DB extras
         }
 
-        if ($password !== $passwordConfirm) {
-            return redirect()->back()->withInput()->with('register_error', 'Passwords do not match.');
-        }
-
-        $userModel = new \App\Models\UserModel();
-
-        // Check for existing email
-        if ($userModel->where('email', $email)->first()) {
-            return redirect()->back()->withInput()->with('register_error', 'Email is already registered.');
-        }
-
-        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-
-        $userId = $userModel->insert([
-            'name' => $name,
-            'email' => $email,
-            'role' => 'student',
-            'password' => $passwordHash,
-        ], true);
-
-        if (! $userId) {
-            return redirect()->back()->withInput()->with('register_error', 'Registration failed.');
-        }
-
-        // Redirect to login with success message
-        return redirect()
-            ->to(base_url('login'))
-            ->with('register_success', 'Account created successfully. Please log in.');
+        // Render unified dashboard with role-conditional content
+        return view('auth/dashboard', $data);
     }
 }
