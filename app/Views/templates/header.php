@@ -13,14 +13,14 @@
                 <?php if (session('isLoggedIn')): ?>
                     <li class="nav-item"><a href="<?= site_url('/dashboard') ?>" class="nav-link">Dashboard</a></li>
                     <?php if ($role === 'admin'): ?>
-                        <li class="nav-item"><a href="<?= site_url('/admin/dashboard') ?>" class="nav-link">Admin</a></li>
-                        <li class="nav-item"><a href="<?= site_url('/admin/users') ?>" class="nav-link">Manage Users</a></li>
+                        <li class="nav-item"><a href="<?= site_url('/courses') ?>" class="nav-link">Manage Courses</a></li>
+                        <li class="nav-item"><a href="<?= site_url('/courses/create') ?>" class="nav-link">Create Course</a></li>
                     <?php elseif ($role === 'teacher'): ?>
-                        <li class="nav-item"><a href="<?= site_url('/teacher/dashboard') ?>" class="nav-link">Teacher</a></li>
-                        <li class="nav-item"><a href="<?= site_url('/teacher/classes') ?>" class="nav-link">My Classes</a></li>
+                        <li class="nav-item"><a href="<?= site_url('/courses') ?>" class="nav-link">My Courses</a></li>
+                        <li class="nav-item"><a href="<?= site_url('/courses/create') ?>" class="nav-link">Create Course</a></li>
                     <?php elseif ($role === 'student'): ?>
-                        <li class="nav-item"><a href="<?= site_url('/student/dashboard') ?>" class="nav-link">Student</a></li>
-                        <li class="nav-item"><a href="<?= site_url('/student/courses') ?>" class="nav-link">My Courses</a></li>
+                        <li class="nav-item"><a href="<?= site_url('/dashboard') ?>" class="nav-link">My Dashboard</a></li>
+                        <li class="nav-item"><a href="<?= site_url('/dashboard') ?>" class="nav-link">My Courses</a></li>
                     <?php endif; ?>
                 <?php endif; ?>
             </ul>
