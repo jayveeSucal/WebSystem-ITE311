@@ -63,7 +63,7 @@
                 <div class="card-body">
                     <h5 class="card-title">My Courses</h5>
                     <p class="card-text">Manage your courses and content</p>
-                    <a href="#" class="btn btn-light">View Courses</a>
+                    <a href="<?= base_url('courses') ?>" class="btn btn-light">View Courses</a>
                 </div>
             </div>
         </div>
@@ -81,7 +81,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Create Course</h5>
                     <p class="card-text">Add new course content</p>
-                    <a href="#" class="btn btn-light">Create</a>
+                    <a href="<?= base_url('courses/create') ?>" class="btn btn-light">Create</a>
                 </div>
             </div>
         </div>
