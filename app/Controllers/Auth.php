@@ -36,14 +36,32 @@ class Auth extends BaseController
                     'userName' => $user['name'] ?? null,
                     'userRole' => $normalizedRole,
                 ]);
-                return redirect()->to(site_url('/dashboard'));
+
+                // Role-based redirection
+                if ($normalizedRole === 'admin') {
+                    return redirect()->to(site_url('/admin/dashboard'));
+                }
+
+                if ($normalizedRole === 'teacher') {
+                    return redirect()->to(site_url('/teacher/dashboard'));
+                }
+
+                // default student
+                return redirect()->to(site_url('/announcements'));
             }
 
             return redirect()->back()->with('login_error', 'Invalid credentials');
         }
 
         if ($session->get('isLoggedIn')) {
-            return redirect()->to(base_url('dashboard'));
+            $role = $session->get('userRole') ?? 'student';
+            if ($role === 'admin') {
+                return redirect()->to(base_url('admin/dashboard'));
+            }
+            if ($role === 'teacher') {
+                return redirect()->to(base_url('teacher/dashboard'));
+            }
+            return redirect()->to(base_url('announcements'));
         }
 
         return view('auth/login');
