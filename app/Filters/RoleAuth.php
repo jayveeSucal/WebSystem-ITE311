@@ -15,53 +15,44 @@ class RoleAuth implements FilterInterface
         if ($role === 'instructor') {
             $role = 'teacher';
         }
-        if ($role === '') {
-            $role = 'guest';
-        }
 
-        $uri = current_url();
-        $path = parse_url($uri, PHP_URL_PATH) ?: '';
+        $path = $request->getUri()->getPath();
+        $path = strtolower($path ?: '/');
 
-        // Normalize to lower-case for checks
-        $path = strtolower($path);
-
-        // Admin routes: start with /admin
+        // Admin routes
         if (str_starts_with($path, '/admin')) {
             if ($role !== 'admin') {
-                session()->setFlashdata('error', 'Access Denied: Insufficient Permissions');
+                $session->setFlashdata('error', 'Access Denied: Insufficient Permissions');
                 return redirect()->to(site_url('/announcements'));
             }
-            return; // allowed
+            return;
         }
 
-        // Teacher routes: start with /teacher
+        // Teacher routes
         if (str_starts_with($path, '/teacher')) {
             if ($role !== 'teacher' && $role !== 'admin') {
-                session()->setFlashdata('error', 'Access Denied: Insufficient Permissions');
+                $session->setFlashdata('error', 'Access Denied: Insufficient Permissions');
                 return redirect()->to(site_url('/announcements'));
             }
             return;
         }
 
-        // Student-only routes: start with /student
+        // Student routes
         if (str_starts_with($path, '/student')) {
             if ($role !== 'student') {
-                session()->setFlashdata('error', 'Access Denied: Insufficient Permissions');
+                $session->setFlashdata('error', 'Access Denied: Insufficient Permissions');
                 return redirect()->to(site_url('/announcements'));
             }
             return;
         }
 
-        // Allow /announcements for everyone who is logged in
+        // Allow announcements to logged-in users
         if ($path === '/announcements' || $path === '/announcements/') {
             if (! $session->get('isLoggedIn')) {
-                session()->setFlashdata('error', 'Access Denied: Insufficient Permissions');
+                $session->setFlashdata('error', 'Access Denied: Insufficient Permissions');
                 return redirect()->to(site_url('/login'));
             }
-            return;
         }
-
-        // No restrictions for other routes here
     }
 
     public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)

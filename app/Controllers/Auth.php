@@ -37,7 +37,7 @@ class Auth extends BaseController
                     'userRole' => $normalizedRole,
                 ]);
 
-                // Role-based redirection
+                // Role-based redirects
                 if ($normalizedRole === 'admin') {
                     return redirect()->to(site_url('/admin/dashboard'));
                 }
@@ -46,7 +46,6 @@ class Auth extends BaseController
                     return redirect()->to(site_url('/teacher/dashboard'));
                 }
 
-                // default student
                 return redirect()->to(site_url('/announcements'));
             }
 
