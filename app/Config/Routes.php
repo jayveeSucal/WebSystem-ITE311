@@ -18,6 +18,8 @@ $routes->get('/login', 'Auth::login');
 $routes->post('/login', 'Auth::login');
 $routes->get('/logout', 'Auth::logout');
 $routes->get('/dashboard', 'Auth::dashboard');
+// Announcements
+$routes->get('/announcements', 'Announcement::index');
 // Registration
 $routes->get('/register', 'Auth::register');
 $routes->post('/register', 'Auth::register');
@@ -36,3 +38,12 @@ $routes->get('/course/enrolled', 'Course::getEnrolledCourses');
 
 // Debug route
 $routes->get('/debug', 'Home::debug');
+
+// Role-specific dashboards
+$routes->group('teacher', ['filter' => 'role'], function($routes){
+	$routes->get('dashboard', 'Teacher::dashboard');
+});
+
+$routes->group('admin', ['filter' => 'role'], function($routes){
+	$routes->get('dashboard', 'Admin::dashboard');
+});
