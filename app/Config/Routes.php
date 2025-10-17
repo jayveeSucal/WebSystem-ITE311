@@ -39,7 +39,7 @@ $routes->get('/course/enrolled', 'Course::getEnrolledCourses');
 // Debug route
 $routes->get('/debug', 'Home::debug');
 
-// Role-specific dashboards
+// Role-specific dashboards protected by the role filter
 $routes->group('teacher', ['filter' => 'role'], function($routes){
 	$routes->get('dashboard', 'Teacher::dashboard');
 });
