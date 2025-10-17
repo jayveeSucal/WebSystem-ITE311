@@ -36,7 +36,7 @@
             </div>
         </div>
 
-        <!-- Available Courses Section -->
+        <!-- Available Courses Section: populated either from controller or fallback list -->
         <div class="col-md-6">
             <div class="card shadow-sm border-0 mb-4">
                 <div class="card-header bg-success text-white">
@@ -161,7 +161,7 @@ $(document).ready(function() {
     loadEnrolledCourses();
     loadAvailableCourses();
 
-    // Function to show alerts
+    // Function to show alerts (success/danger) with auto-hide
     function showAlert(message, type = 'success') {
         const alertHtml = `
             <div class="alert alert-${type} alert-dismissible fade show" role="alert">
@@ -177,7 +177,7 @@ $(document).ready(function() {
         }, 5000);
     }
 
-    // Function to load enrolled courses
+    // Function to load enrolled courses via GET JSON
     function loadEnrolledCourses() {
         $.get('<?= base_url('course/enrolled') ?>')
             .done(function(response) {
@@ -192,7 +192,7 @@ $(document).ready(function() {
             });
     }
 
-    // Function to display enrolled courses
+    // Render enrolled courses list items
     function displayEnrolledCourses(enrollments) {
         if (enrollments.length === 0) {
             $('#enrolled-courses').html('<p class="text-muted">You are not enrolled in any courses yet.</p>');
@@ -215,7 +215,7 @@ $(document).ready(function() {
         $('#enrolled-courses').html(html);
     }
 
-    // Function to load available courses
+    // Load available courses from PHP-provided data or fallback seed list
     function loadAvailableCourses() {
         <?php if (isset($available_courses) && !empty($available_courses)): ?>
         const availableCourses = <?= json_encode($available_courses) ?>;
@@ -235,7 +235,7 @@ $(document).ready(function() {
         <?php endif; ?>
     }
 
-    // Function to display available courses
+    // Render available courses with an Enroll button per item
     function displayAvailableCourses(courses) {
         let html = '<div class="list-group">';
         courses.forEach(function(course) {
@@ -255,7 +255,7 @@ $(document).ready(function() {
         $('#available-courses').html(html);
     }
 
-    // Handle enrollment button clicks
+    // Handle enrollment button clicks (AJAX POST)
     $(document).on('click', '.enroll-btn', function(e) {
         e.preventDefault();
         

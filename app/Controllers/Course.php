@@ -12,12 +12,14 @@ class Course extends BaseController
 
     public function __construct()
     {
+        // Models encapsulate DB access for enrollments and courses
         $this->enrollmentModel = new EnrollmentModel();
         $this->courseModel = new CourseModel();
     }
 
     /**
-     * Handle course enrollment via AJAX
+     * Handle course enrollment via AJAX.
+     * Returns JSON responses and enforces session guard and basic validation.
      */
     public function enroll()
     {
@@ -30,8 +32,7 @@ class Course extends BaseController
             ])->setStatusCode(401);
         }
 
-        // CSRF Protection - CodeIgniter automatically validates CSRF tokens
-        // This is handled by the framework's security filters
+        // CSRF Protection: validated by CI4 security filters if enabled
 
         // Get user ID from session
         $user_id = $session->get('userId');
@@ -39,7 +40,7 @@ class Course extends BaseController
         // Get course_id from POST request
         $course_id = $this->request->getPost('course_id');
 
-        // Validate course_id - prevent SQL injection and ensure it's a valid integer
+        // Validate course_id - ensure it's a positive integer
         if (!$course_id || !is_numeric($course_id) || $course_id <= 0) {
             return $this->response->setJSON([
                 'success' => false,
@@ -47,7 +48,7 @@ class Course extends BaseController
             ])->setStatusCode(400);
         }
 
-        // Additional validation: ensure course_id is within reasonable bounds
+        // Additional sanity check on range
         if ($course_id > 999999) {
             return $this->response->setJSON([
                 'success' => false,
@@ -117,7 +118,7 @@ class Course extends BaseController
     }
 
     /**
-     * Display all courses (for teachers/admins)
+     * Display all courses (for teachers/admins). Guards access by role.
      */
     public function index()
     {

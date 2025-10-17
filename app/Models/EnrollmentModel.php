@@ -20,7 +20,8 @@ class EnrollmentModel extends Model
     protected $useTimestamps = false;
 
     /**
-     * Enroll a user in a course
+     * Enroll a user in a course.
+     * Returns inserted ID on success or false on failure.
      */
     public function enrollUser($data)
     {
@@ -28,7 +29,8 @@ class EnrollmentModel extends Model
     }
 
     /**
-     * Get all courses a user is enrolled in
+     * Get all courses a user is enrolled in.
+     * Joins `courses` for display fields.
      */
     public function getUserEnrollments($user_id)
     {
@@ -41,7 +43,7 @@ class EnrollmentModel extends Model
     }
 
     /**
-     * Check if a user is already enrolled in a specific course
+     * Check if a user is already enrolled in a specific course.
      */
     public function isAlreadyEnrolled($user_id, $course_id)
     {
@@ -53,7 +55,7 @@ class EnrollmentModel extends Model
     }
 
     /**
-     * Get available courses for a user (courses they're not enrolled in)
+     * Get available courses for a user (courses they're not enrolled in).
      */
     public function getAvailableCourses($user_id)
     {

@@ -4,6 +4,10 @@ namespace App\Controllers;
 
 class Auth extends BaseController
 {
+    /**
+     * Handle login for GET (form) and POST (authenticate) requests.
+     * Uses session to persist `isLoggedIn`, `userId`, and normalized `userRole`.
+     */
 
     public function login()
     {
@@ -15,7 +19,7 @@ class Auth extends BaseController
             $userModel = new \App\Models\UserModel();
             $user = $userModel->where('email', $email)->first();
             if ($user && password_verify($password, $user['password'])) {
-                // Normalize role values to supported set
+                // Normalize role values to a supported set to avoid drift like "instructor"
                 $rawRole = (string) ($user['role'] ?? 'student');
                 $normalizedRole = $rawRole;
                 if ($rawRole === 'instructor') {
@@ -45,6 +49,9 @@ class Auth extends BaseController
         return view('auth/login');
     }
 
+    /**
+     * Destroy session and redirect to login.
+     */
     public function logout()
     {
         $session = session();
@@ -52,6 +59,10 @@ class Auth extends BaseController
         return redirect()->to(base_url('login'));
     }
 
+    /**
+     * Handle registration for GET (form) and POST (create account) requests.
+     * Validates required fields, email format, and password confirmation.
+     */
     public function register()
     {
         $session = session();
@@ -104,6 +115,12 @@ class Auth extends BaseController
         return view('auth/register');
     }
 
+    /**
+     * Render role-aware dashboard.
+     * - Admin: loads counts.
+     * - Student: preloads available courses for AJAX section.
+     * Guards access for unauthenticated users.
+     */
     public function dashboard()
     {
         $session = session();
@@ -133,7 +150,7 @@ class Auth extends BaseController
             ],
         ];
 
-        // Example of role-based data loading (stub; adjust to your schema)
+        // Role-based data loading (best-effort; dashboard remains functional if queries fail)
         try {
             if ($role === 'admin') {
                 $userModel = new \App\Models\UserModel();
@@ -148,7 +165,7 @@ class Auth extends BaseController
                 $data['available_courses'] = $enrollmentModel->getAvailableCourses($userId);
             }
         } catch (\Throwable $e) {
-            // Silently continue for now; keep dashboard functional without DB extras
+            // Silently continue to keep dashboard functional without DB extras
         }
 
         // Render unified dashboard with role-conditional content
