@@ -144,7 +144,6 @@ class Auth extends BaseController
         if (! $session->get('isLoggedIn')) {
             return redirect()->to(base_url('login'));
         }
-
         $role = (string) $session->get('userRole');
         if ($role === 'instructor') {
             $role = 'teacher';
@@ -167,22 +166,40 @@ class Auth extends BaseController
             ],
         ];
 
-        // Role-based data loading (best-effort; dashboard remains functional if queries fail)
+        // Check database connectivity first to avoid Fatal errors when DB is down.
+        $dbAvailable = true;
         try {
-            if ($role === 'admin') {
-                $userModel = new \App\Models\UserModel();
-                $courseModel = new \App\Models\CourseModel();
-                $data['stats']['admin']['usersTotal'] = $userModel->countAllResults();
-                $data['stats']['admin']['coursesTotal'] = $courseModel->countAllResults();
-            }
-
-            if ($role === 'student') {
-                $enrollmentModel = new \App\Models\EnrollmentModel();
-                $userId = (int) $session->get('userId');
-                $data['available_courses'] = $enrollmentModel->getAvailableCourses($userId);
-            }
+            $db = \Config\Database::connect();
+            // attempt a lightweight connection check
+            $db->connect();
         } catch (\Throwable $e) {
-            // Silently continue to keep dashboard functional without DB extras
+            $dbAvailable = false;
+            // Optional: log the connectivity issue but don't block dashboard rendering
+            log_message('error', 'Database not available for dashboard: ' . $e->getMessage());
+        }
+
+        // Role-based data loading only when DB is available
+        if ($dbAvailable) {
+            try {
+                if ($role === 'admin') {
+                    $userModel = new \App\Models\UserModel();
+                    $courseModel = new \App\Models\CourseModel();
+                    $data['stats']['admin']['usersTotal'] = $userModel->countAllResults();
+                    $data['stats']['admin']['coursesTotal'] = $courseModel->countAllResults();
+                }
+
+                if ($role === 'student') {
+                    $enrollmentModel = new \App\Models\EnrollmentModel();
+                    $userId = (int) $session->get('userId');
+                    $data['available_courses'] = $enrollmentModel->getAvailableCourses($userId);
+                }
+            } catch (\Throwable $e) {
+                // Keep dashboard functional; log for debugging
+                log_message('error', 'Error loading dashboard data: ' . $e->getMessage());
+            }
+        } else {
+            // DB not available: populate safe defaults and notify user via flashdata
+            session()->setFlashdata('error', 'Some dashboard features are unavailable because the database is unreachable.');
         }
 
         // Render unified dashboard with role-conditional content
