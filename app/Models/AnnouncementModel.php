@@ -9,5 +9,5 @@ class AnnouncementModel extends Model
     protected $table = 'announcements';
     protected $primaryKey = 'id';
     protected $allowedFields = ['title', 'content', 'created_at'];
-    protected $useTimestamps = false; // we'll set created_at manually
+    protected $useTimestamps = false;
 }
