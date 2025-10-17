@@ -1,60 +1,55 @@
-# CodeIgniter 4 Framework
+# ITE311-BAJARIAS - Online Student Portal (CodeIgniter 4)
 
-## What is CodeIgniter?
+## Getting Started
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+1. Requirements
+   - PHP 8.1+
+   - Composer
+   - MySQL
+   - XAMPP (as used in lab)
 
-This repository holds the distributable version of the framework.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+2. Install dependencies
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+```bash
+composer install
+```
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+3. Configure environment
+   - Copy `env` to `.env`
+   - Update database credentials in `.env`
 
-## Important Change with index.php
+4. Run migrations
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+```bash
+php spark migrate
+```
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+5. Seed sample data
 
-**Please** read the user guide for a better explanation of how CI4 works!
+```bash
+php spark db:seed UserSeeder
+php spark db:seed CourseSeeder
+php spark db:seed EnrollmentSeeder
+```
 
-## Repository Management
+6. Start development server (or use XAMPP Apache)
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+```bash
+php spark serve
+```
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+## Features Implemented
+- Authentication (login, register, logout) with role-based dashboard (student/teacher/admin)
+- Course management for teachers/admins (create, edit, delete, list)
+- Student enrollment via AJAX with CSRF protection
+- Bootstrap 5 styling with shared `template.php`
 
-## Contributing
+## Routes
+- `/login`, `/register`, `/logout`, `/dashboard`
+- `/courses`, `/courses/create`, `/courses/edit/{id}`
+- `/course/enroll` (POST), `/course/enrolled` (GET)
 
-We welcome contributions from the community.
-
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/CONTRIBUTING.md) section in the development repository.
-
-## Server Requirements
-
-PHP version 8.1 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+## Notes
+- Session guards protect teacher/admin pages
+- Admin dashboard shows basic counts
+- Student dashboard lists enrolled and available courses
