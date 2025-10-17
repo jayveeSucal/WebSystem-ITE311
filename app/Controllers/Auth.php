@@ -15,9 +15,15 @@ class Auth extends BaseController
         if ($this->request->getMethod(true) === 'POST') {
             $email = trim((string) $this->request->getPost('email'));
             $password = (string) $this->request->getPost('password');
+            try {
+                $userModel = new \App\Models\UserModel();
+                $user = $userModel->where('email', $email)->first();
+            } catch (\Throwable $e) {
+                // Database not reachable or other DB error
+                log_message('error', 'Auth login DB error: ' . $e->getMessage());
+                return redirect()->back()->withInput()->with('login_error', 'Database unavailable. Please try again later.');
+            }
 
-            $userModel = new \App\Models\UserModel();
-            $user = $userModel->where('email', $email)->first();
             if ($user && password_verify($password, $user['password'])) {
                 // Normalize role values to a supported set to avoid drift like "instructor"
                 $rawRole = (string) ($user['role'] ?? 'student');
