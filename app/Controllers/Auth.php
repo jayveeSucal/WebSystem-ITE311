@@ -135,9 +135,17 @@ class Auth extends BaseController
 
         // Example of role-based data loading (stub; adjust to your schema)
         try {
-            $userModel = new \App\Models\UserModel();
             if ($role === 'admin') {
+                $userModel = new \App\Models\UserModel();
+                $courseModel = new \App\Models\CourseModel();
                 $data['stats']['admin']['usersTotal'] = $userModel->countAllResults();
+                $data['stats']['admin']['coursesTotal'] = $courseModel->countAllResults();
+            }
+
+            if ($role === 'student') {
+                $enrollmentModel = new \App\Models\EnrollmentModel();
+                $userId = (int) $session->get('userId');
+                $data['available_courses'] = $enrollmentModel->getAvailableCourses($userId);
             }
         } catch (\Throwable $e) {
             // Silently continue for now; keep dashboard functional without DB extras
