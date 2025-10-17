@@ -11,11 +11,13 @@
 
 <?= $this->include('templates/header') ?>
 
-<div class="container mt-5">
-    <div class="card bg-dark text-light p-4">
-        <?= $this->renderSection('content') ?>
+<div class="container mt-4">
+    <?= $this->renderSection('content') ?>
+    <footer class="mt-5 text-center text-muted small">
+        <hr>
+        <div>Online Student Portal &middot; Built with CodeIgniter 4 & Bootstrap 5</div>
+    </footer>
     </div>
-</div>
 
 <!-- Bootstrap JS Bundle -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
