@@ -1,29 +1,28 @@
 <?php
-
 namespace App\Controllers;
 
 use App\Models\EnrollmentModel;
 use App\Models\CourseModel;
+use App\Models\MaterialModel;
 
 class Course extends BaseController
 {
     protected $enrollmentModel;
     protected $courseModel;
+    protected $materialModel;
 
     public function __construct()
     {
-        // Models encapsulate DB access for enrollments and courses
         $this->enrollmentModel = new EnrollmentModel();
         $this->courseModel = new CourseModel();
+        $this->materialModel = new MaterialModel();
     }
 
     /**
      * Handle course enrollment via AJAX.
-     * Returns JSON responses and enforces session guard and basic validation.
      */
     public function enroll()
     {
-        // Check if user is logged in
         $session = session();
         if (!$session->get('isLoggedIn')) {
             return $this->response->setJSON([
@@ -32,15 +31,9 @@ class Course extends BaseController
             ])->setStatusCode(401);
         }
 
-        // CSRF Protection: validated by CI4 security filters if enabled
-
-        // Get user ID from session
         $user_id = $session->get('userId');
-
-        // Get course_id from POST request
         $course_id = $this->request->getPost('course_id');
 
-        // Validate course_id - ensure it's a positive integer
         if (!$course_id || !is_numeric($course_id) || $course_id <= 0) {
             return $this->response->setJSON([
                 'success' => false,
@@ -48,7 +41,6 @@ class Course extends BaseController
             ])->setStatusCode(400);
         }
 
-        // Additional sanity check on range
         if ($course_id > 999999) {
             return $this->response->setJSON([
                 'success' => false,
@@ -56,7 +48,6 @@ class Course extends BaseController
             ])->setStatusCode(400);
         }
 
-        // Check if course exists
         $course = $this->courseModel->getCourseById($course_id);
         if (!$course) {
             return $this->response->setJSON([
@@ -65,7 +56,6 @@ class Course extends BaseController
             ])->setStatusCode(404);
         }
 
-        // Check if user is already enrolled
         if ($this->enrollmentModel->isAlreadyEnrolled($user_id, $course_id)) {
             return $this->response->setJSON([
                 'success' => false,
@@ -73,14 +63,12 @@ class Course extends BaseController
             ])->setStatusCode(400);
         }
 
-        // Prepare enrollment data
         $enrollmentData = [
             'user_id' => $user_id,
             'course_id' => $course_id,
-            'enrollment_date' => date('Y-m-d H:i:s')
+            'enrolled_at' => date('Y-m-d H:i:s')
         ];
 
-        // Insert enrollment record
         if ($this->enrollmentModel->enrollUser($enrollmentData)) {
             return $this->response->setJSON([
                 'success' => true,
@@ -96,7 +84,7 @@ class Course extends BaseController
     }
 
     /**
-     * Get user's enrolled courses (for AJAX)
+     * Get user's enrolled courses (AJAX)
      */
     public function getEnrolledCourses()
     {
@@ -118,7 +106,7 @@ class Course extends BaseController
     }
 
     /**
-     * Display all courses (for teachers/admins). Guards access by role.
+     * List all courses (for teachers/admins)
      */
     public function index()
     {
@@ -133,7 +121,11 @@ class Course extends BaseController
         }
 
         $courses = $this->courseModel->getAllCourses();
-        
+
+        foreach ($courses as &$course) {
+            $course['materials'] = $this->materialModel->getMaterialsByCourse($course['id']);
+        }
+
         $data = [
             'title' => 'Course Management',
             'courses' => $courses,
@@ -278,9 +270,9 @@ class Course extends BaseController
     }
 
     /**
-     * Delete course
+     * Delete all materials for a course (but keep the course)
      */
-    public function delete($id)
+    public function deleteMaterials($id)
     {
         $session = session();
         if (!$session->get('isLoggedIn')) {
@@ -292,10 +284,141 @@ class Course extends BaseController
             return redirect()->to(base_url('dashboard'));
         }
 
-        if ($this->courseModel->delete($id)) {
-            return redirect()->to(base_url('courses'))->with('success', 'Course deleted successfully!');
+        $course = $this->courseModel->getCourseById($id);
+        if (!$course) {
+            return redirect()->to(base_url('courses'))->with('error', 'Course not found.');
+        }
+
+        $materials = $this->materialModel->getMaterialsByCourse($id);
+        $deletedCount = 0;
+
+        foreach ($materials as $material) {
+            $filePath = WRITEPATH . $material['file_path'];
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+            if ($this->materialModel->delete($material['id'])) {
+                $deletedCount++;
+            }
+        }
+
+        return redirect()->to(base_url('courses'))->with('success', 'All materials deleted successfully! (' . $deletedCount . ' files removed)');
+    }
+
+
+
+    /**
+     * Upload material for a course
+     */
+    public function upload($course_id)
+    {
+        $session = session();
+        if (!$session->get('isLoggedIn')) {
+            return redirect()->to(base_url('login'));
+        }
+
+        $role = $session->get('userRole');
+        if (!in_array($role, ['teacher', 'admin'])) {
+            return redirect()->to(base_url('dashboard'));
+        }
+
+        $course = $this->courseModel->getCourseById($course_id);
+        if (!$course) {
+            return redirect()->to(base_url('courses'))->with('error', 'Course not found.');
+        }
+
+        if ($this->request->getMethod() === 'POST') {
+            $file = $this->request->getFile('material');
+            if ($file->isValid() && !$file->hasMoved()) {
+                $newName = $file->getRandomName();
+                $file->move(WRITEPATH . 'uploads', $newName);
+
+                $data = [
+                    'course_id' => $course_id,
+                    'file_name' => $file->getClientName(),
+                    'file_path' => 'uploads/' . $newName,
+                    'created_at' => date('Y-m-d H:i:s'),
+                ];
+
+                if ($this->materialModel->insertMaterial($data)) {
+                    return redirect()->to(base_url('courses'))->with('success', 'Material uploaded successfully!');
+                } else {
+                    return redirect()->back()->with('error', 'Failed to upload material.');
+                }
+            } else {
+                return redirect()->back()->with('error', 'Invalid file.');
+            }
+        }
+
+        $data = [
+            'title' => 'Upload Material',
+            'course' => $course,
+            'user' => [
+                'name' => $session->get('userName'),
+                'email' => $session->get('userEmail'),
+            ],
+        ];
+
+        return view('courses/upload', $data);
+    }
+
+    /**
+     * Delete material
+     */
+    public function deleteMaterial($material_id)
+    {
+        $session = session();
+        if (!$session->get('isLoggedIn')) {
+            return redirect()->to(base_url('login'));
+        }
+
+        $role = $session->get('userRole');
+        if (!in_array($role, ['teacher', 'admin'])) {
+            return redirect()->to(base_url('dashboard'));
+        }
+
+        $material = $this->materialModel->find($material_id);
+        if (!$material) {
+            return redirect()->to(base_url('courses'))->with('error', 'Material not found.');
+        }
+
+        $filePath = WRITEPATH . $material['file_path'];
+        if (file_exists($filePath)) {
+            unlink($filePath);
+        }
+
+        if ($this->materialModel->delete($material_id)) {
+            return redirect()->back()->with('success', 'Material deleted successfully!');
         } else {
-            return redirect()->to(base_url('courses'))->with('error', 'Failed to delete course. Please try again.');
+            return redirect()->back()->with('error', 'Failed to delete material.');
+        }
+    }
+
+    /**
+     * Download material
+     */
+    public function download($material_id)
+    {
+        $session = session();
+        if (!$session->get('isLoggedIn')) {
+            return redirect()->to(base_url('login'));
+        }
+
+        $material = $this->materialModel->find($material_id);
+        if (!$material) {
+            return redirect()->to(base_url('dashboard'))->with('error', 'Material not found.');
+        }
+
+        $user_id = $session->get('userId');
+        if (!$this->enrollmentModel->isAlreadyEnrolled($user_id, $material['course_id'])) {
+            return redirect()->to(base_url('dashboard'))->with('error', 'You are not enrolled in this course.');
+        }
+
+        $filePath = WRITEPATH . $material['file_path'];
+        if (file_exists($filePath)) {
+            return $this->response->download($filePath, null, true)->setFileName($material['file_name']);
+        } else {
+            return redirect()->back()->with('error', 'File not found.');
         }
     }
 }

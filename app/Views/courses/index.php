@@ -49,9 +49,10 @@
                         <div class="card-footer bg-transparent">
                             <div class="btn-group w-100" role="group">
                                 <a href="<?= base_url('courses/edit/' . $course['id']) ?>" class="btn btn-outline-primary btn-sm">Edit</a>
-                                <a href="<?= base_url('courses/delete/' . $course['id']) ?>" 
+                                <a href="<?= base_url('courses/upload/' . $course['id']) ?>" class="btn btn-outline-success btn-sm">Upload Material</a>
+                                <a href="<?= base_url('courses/deleteMaterials/' . $course['id']) ?>"
                                    class="btn btn-outline-danger btn-sm"
-                                   onclick="return confirm('Are you sure you want to delete this course?')">Delete</a>
+                                   onclick="return confirm('Are you sure you want to delete all materials for this course?')">Delete Materials</a>
                             </div>
                         </div>
                     </div>

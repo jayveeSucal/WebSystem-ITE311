@@ -25,18 +25,26 @@
                     <h5 class="mb-0">My Enrolled Courses</h5>
                 </div>
                 <div class="card-body">
-                    <div id="enrolled-courses">
-                        <div class="text-center">
-                            <div class="spinner-border text-primary" role="status">
-                                <span class="visually-hidden">Loading...</span>
-                            </div>
+                    <?php if (isset($enrollments) && !empty($enrollments)): ?>
+                        <div class="list-group">
+                            <?php foreach ($enrollments as $enrollment): ?>
+                                <div class="list-group-item">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1"><?= esc($enrollment['title']) ?></h6>
+                                        <small><?= esc($enrollment['enrolled_at']) ?></small>
+                                    </div>
+                                    <p class="mb-1"><?= esc($enrollment['description']) ?></p>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
-                    </div>
+                    <?php else: ?>
+                        <p class="text-muted">You are not enrolled in any courses yet.</p>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
 
-        <!-- Available Courses Section: populated either from controller or fallback list -->
+        <!-- Available Courses Section -->
         <div class="col-md-6">
             <div class="card shadow-sm border-0 mb-4">
                 <div class="card-header bg-success text-white">
@@ -44,12 +52,52 @@
                 </div>
                 <div class="card-body">
                     <div id="available-courses">
-                        <div class="text-center">
-                            <div class="spinner-border text-success" role="status">
-                                <span class="visually-hidden">Loading...</span>
+                        <?php if (isset($available_courses) && !empty($available_courses)): ?>
+                            <div class="list-group">
+                                <?php foreach ($available_courses as $course): ?>
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="mb-1"><?= esc($course['title']) ?></h6>
+                                            <p class="mb-1"><?= esc($course['description']) ?></p>
+                                        </div>
+                                        <button class="btn btn-primary btn-sm enroll-btn" data-course-id="<?= $course['id'] ?>">
+                                            Enroll
+                                        </button>
+                                    </div>
+                                <?php endforeach; ?>
                             </div>
-                        </div>
+                        <?php else: ?>
+                            <p class="text-muted">No available courses.</p>
+                        <?php endif; ?>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Course Materials Section -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow-sm border-0 mb-4">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">Course Materials</h5>
+                </div>
+                <div class="card-body">
+                    <?php if (isset($materials) && !empty($materials)): ?>
+                        <div class="list-group">
+                            <?php foreach ($materials as $material): ?>
+                                <div class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h6 class="mb-1"><?= esc($material['file_name']) ?></h6>
+                                        <small class="text-muted">Uploaded: <?= esc($material['created_at']) ?></small>
+                                    </div>
+                                    <a href="<?= base_url('courses/download/' . $material['id']) ?>" class="btn btn-sm btn-primary">Download</a>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    <?php else: ?>
+                        <p class="text-muted">No materials available.</p>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -70,9 +118,9 @@
         <div class="col-md-4">
             <div class="card bg-warning text-white">
                 <div class="card-body">
-                    <h5 class="card-title">Pending Submissions</h5>
-                    <p class="card-text">Review student submissions</p>
-                    <a href="#" class="btn btn-light">Review</a>
+                    <h5 class="card-title">Upload Materials</h5>
+                    <p class="card-text">Upload files to your courses</p>
+                    <a href="<?= base_url('courses') ?>" class="btn btn-light">Upload</a>
                 </div>
             </div>
         </div>
@@ -128,11 +176,11 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    <h5>User Management</h5>
+                    <h5>Course Management</h5>
                 </div>
                 <div class="card-body">
-                    <p>Manage users, roles, and permissions</p>
-                    <a href="#" class="btn btn-primary">Manage Users</a>
+                    <p>Manage courses and upload materials</p>
+                    <a href="<?= base_url('courses') ?>" class="btn btn-primary">Manage Courses</a>
                 </div>
             </div>
         </div>
@@ -205,7 +253,7 @@ $(document).ready(function() {
                 <div class="list-group-item">
                     <div class="d-flex w-100 justify-content-between">
                         <h6 class="mb-1">${enrollment.title}</h6>
-                        <small>${new Date(enrollment.enrollment_date).toLocaleDateString()}</small>
+                        <small>${new Date(enrollment.enrolled_at).toLocaleDateString()}</small>
                     </div>
                     <p class="mb-1">${enrollment.description || 'No description available.'}</p>
                 </div>
@@ -279,13 +327,8 @@ $(document).ready(function() {
         $.post('<?= base_url('course/enroll') ?>', postData)
         .done(function(response) {
             if (response.success) {
-                showAlert(response.message, 'success');
-                // Remove the course from available courses with smooth animation
-                button.closest('.list-group-item').fadeOut(300, function() {
-                    $(this).remove();
-                });
-                // Reload enrolled courses
-                loadEnrolledCourses();
+                // Redirect to dashboard to show updated enrolled courses
+                window.location.href = '<?= base_url('dashboard') ?>';
             } else {
                 showAlert(response.message || 'Failed to enroll in course.', 'danger');
                 // Re-enable button
@@ -293,8 +336,25 @@ $(document).ready(function() {
             }
         })
         .fail(function(xhr, status, error) {
-            console.error('Enrollment error:', error);
-            showAlert('Network error. Please check your connection and try again.', 'danger');
+            console.error('Enrollment error:', xhr.status, error);
+            let message = 'Network error. Please check your connection and try again.';
+            if (xhr.status === 401) {
+                message = 'You must be logged in to enroll in courses.';
+            } else if (xhr.status === 400) {
+                try {
+                    const response = JSON.parse(xhr.responseText);
+                    message = response.message || 'Invalid request.';
+                } catch (e) {
+                    message = 'Invalid course ID or request.';
+                }
+            } else if (xhr.status === 404) {
+                message = 'Course not found.';
+            } else if (xhr.status === 500) {
+                message = 'Server error. Please try again later.';
+            } else if (xhr.status === 0) {
+                message = 'Network error. Please check your connection and try again.';
+            }
+            showAlert(message, 'danger');
             // Re-enable button
             button.prop('disabled', false).text('Enroll');
         });

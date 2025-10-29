@@ -4,6 +4,12 @@ namespace App\Controllers;
 
 class Auth extends BaseController
 {
+    protected $courseModel;
+
+    public function __construct()
+    {
+        $this->courseModel = new \App\Models\CourseModel();
+    }
     /**
      * Handle login for GET (form) and POST (authenticate) requests.
      * Uses session to persist `isLoggedIn`, `userId`, and normalized `userRole`.
@@ -37,15 +43,7 @@ class Auth extends BaseController
                     'userRole' => $normalizedRole,
                 ]);
 
-                if ($normalizedRole === 'admin') {
-                    return redirect()->to(site_url('/admin/dashboard'));
-                }
-
-                if ($normalizedRole === 'teacher') {
-                    return redirect()->to(site_url('/teacher/dashboard'));
-                }
-
-                return redirect()->to(site_url('/announcements'));
+                return redirect()->to(site_url('/dashboard'));
             }
 
             return redirect()->back()->with('login_error', 'Invalid credentials');
@@ -163,15 +161,24 @@ class Auth extends BaseController
         try {
             if ($role === 'admin') {
                 $userModel = new \App\Models\UserModel();
-                $courseModel = new \App\Models\CourseModel();
                 $data['stats']['admin']['usersTotal'] = $userModel->countAllResults();
-                $data['stats']['admin']['coursesTotal'] = $courseModel->countAllResults();
+                $data['stats']['admin']['coursesTotal'] = $this->courseModel->countAllResults();
             }
 
             if ($role === 'student') {
                 $enrollmentModel = new \App\Models\EnrollmentModel();
+                $materialModel = new \App\Models\MaterialModel();
                 $userId = (int) $session->get('userId');
                 $data['available_courses'] = $enrollmentModel->getAvailableCourses($userId);
+                $enrollments = $enrollmentModel->getUserEnrollments($userId);
+
+                $materials = [];
+                foreach ($enrollments as $enrollment) {
+                    $courseMaterials = $materialModel->getMaterialsByCourse($enrollment['course_id']);
+                    $materials = array_merge($materials, $courseMaterials);
+                }
+                $data['enrollments'] = $enrollments;
+                $data['materials'] = $materials;
             }
         } catch (\Throwable $e) {
             // Silently continue to keep dashboard functional without DB extras

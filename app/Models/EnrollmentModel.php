@@ -14,7 +14,7 @@ class EnrollmentModel extends Model
     protected $allowedFields = [
         'user_id',
         'course_id',
-        'enrollment_date',
+        'enrolled_at',
     ];
 
     protected $useTimestamps = false;

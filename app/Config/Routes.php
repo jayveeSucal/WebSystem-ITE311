@@ -18,8 +18,6 @@ $routes->get('/login', 'Auth::login');
 $routes->post('/login', 'Auth::login');
 $routes->get('/logout', 'Auth::logout');
 $routes->get('/dashboard', 'Auth::dashboard');
-// Announcements
-$routes->get('/announcements', 'Announcement::index');
 // Registration
 $routes->get('/register', 'Auth::register');
 $routes->post('/register', 'Auth::register');
@@ -30,20 +28,20 @@ $routes->get('/courses/create', 'Course::create');
 $routes->post('/courses/store', 'Course::store');
 $routes->get('/courses/edit/(:num)', 'Course::edit/$1');
 $routes->post('/courses/update/(:num)', 'Course::update/$1');
-$routes->get('/courses/delete/(:num)', 'Course::delete/$1');
+$routes->get('/courses/deleteMaterials/(:num)', 'Course::deleteMaterials/$1');
 
 // Course enrollment
 $routes->post('/course/enroll', 'Course::enroll');
 $routes->get('/course/enrolled', 'Course::getEnrolledCourses');
 
+// Materials management
+$routes->get('/courses/upload/(:num)', 'Course::upload/$1');
+$routes->post('/courses/upload/(:num)', 'Course::upload/$1');
+$routes->get('/courses/materials/(:num)', 'Course::materials/$1');
+$routes->get('/courses/deleteMaterial/(:num)', 'Course::deleteMaterial/$1');
+$routes->get('/courses/download/(:num)', 'Course::download/$1');
+
 // Debug route
 $routes->get('/debug', 'Home::debug');
 
-// Role-specific dashboards protected by role filter
-$routes->group('teacher', ['filter' => 'role'], function($routes){
-	$routes->get('dashboard', 'Teacher::dashboard');
-});
 
-$routes->group('admin', ['filter' => 'role'], function($routes){
-	$routes->get('dashboard', 'Admin::dashboard');
-});
