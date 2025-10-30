@@ -44,4 +44,8 @@ $routes->get('/courses/download/(:num)', 'Course::download/$1');
 // Debug route
 $routes->get('/debug', 'Home::debug');
 
+// Notifications
+$routes->get('/notifications', 'Notifications::get');
+$routes->post('/notifications/mark_read/(:num)', 'Notifications::mark_as_read/$1');
+
 

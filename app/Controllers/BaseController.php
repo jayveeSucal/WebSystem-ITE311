@@ -8,6 +8,7 @@ use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
+use App\Models\NotificationModel;
 
 /**
  * Class BaseController
@@ -54,5 +55,20 @@ abstract class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = service('session');
+        // Initialize session and set unread notifications count (if logged in)
+        $this->session = service('session');
+        if ($this->session->get('isLoggedIn')) {
+            try {
+                $notificationModel = new NotificationModel();
+                $userId = $this->session->get('userId');
+                $count = $notificationModel->getUnreadCount($userId);
+                $this->session->set('unreadNotifications', (int) $count);
+            } catch (\Exception $e) {
+                // If something goes wrong, ensure it doesn't break the app.
+                $this->session->set('unreadNotifications', 0);
+            }
+        } else {
+            $this->session->set('unreadNotifications', 0);
+        }
     }
 }

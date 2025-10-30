@@ -4,18 +4,21 @@ namespace App\Controllers;
 use App\Models\EnrollmentModel;
 use App\Models\CourseModel;
 use App\Models\MaterialModel;
+use App\Models\NotificationModel;
 
 class Course extends BaseController
 {
     protected $enrollmentModel;
     protected $courseModel;
     protected $materialModel;
+    protected $notificationModel;
 
     public function __construct()
     {
         $this->enrollmentModel = new EnrollmentModel();
         $this->courseModel = new CourseModel();
         $this->materialModel = new MaterialModel();
+        $this->notificationModel = new NotificationModel();
     }
 
     /**
@@ -70,6 +73,24 @@ class Course extends BaseController
         ];
 
         if ($this->enrollmentModel->enrollUser($enrollmentData)) {
+            // Create a notification for the student
+            try {
+                $message = 'You have been enrolled in ' . $course['title'];
+                $this->notificationModel->insert([
+                    'user_id' => $user_id,
+                    'message' => $message,
+                    'is_read' => 0,
+                    'created_at' => date('Y-m-d H:i:s')
+                ]);
+            } catch (\Exception $e) {
+                // Log the error so missing table / DB issues are visible in writable/logs
+                try {
+                    $logger = service('logger');
+                    $logger->error('Failed to create notification for user ' . $user_id . ': ' . $e->getMessage());
+                } catch (\Throwable $_) {
+                    // ignore logging failure
+                }
+            }
             return $this->response->setJSON([
                 'success' => true,
                 'message' => 'Successfully enrolled in ' . $course['title'] . '!',
