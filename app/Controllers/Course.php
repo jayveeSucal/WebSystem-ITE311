@@ -127,6 +127,76 @@ class Course extends BaseController
     }
 
     /**
+     * Search courses (AJAX endpoint for server-side search)
+     */
+    public function search()
+    {
+        $session = session();
+        if (!$session->get('isLoggedIn')) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'You must be logged in.'
+            ])->setStatusCode(401);
+        }
+
+        $query = $this->request->getGet('q') ?? $this->request->getPost('q') ?? '';
+        $query = trim($query);
+
+        // Get all courses or search results
+        if (empty($query)) {
+            $courses = $this->courseModel->getAllCourses();
+        } else {
+            $courses = $this->courseModel->searchCourses($query);
+        }
+
+        return $this->response->setJSON([
+            'success' => true,
+            'courses' => $courses,
+            'query' => $query,
+            'count' => count($courses)
+        ]);
+    }
+
+    /**
+     * Get available courses for students (AJAX)
+     */
+    public function getAvailableCourses()
+    {
+        $session = session();
+        if (!$session->get('isLoggedIn')) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'You must be logged in.'
+            ])->setStatusCode(401);
+        }
+
+        $user_id = $session->get('userId');
+        $query = $this->request->getGet('q') ?? $this->request->getPost('q') ?? '';
+        $query = trim($query);
+
+        // Get available courses (not enrolled)
+        $availableCourses = $this->courseModel->getAvailableCourses($user_id);
+
+        // Apply search filter if query provided
+        if (!empty($query)) {
+            $availableCourses = array_filter($availableCourses, function($course) use ($query) {
+                $searchTerm = strtolower($query);
+                $title = strtolower($course['title'] ?? '');
+                $description = strtolower($course['description'] ?? '');
+                return strpos($title, $searchTerm) !== false || strpos($description, $searchTerm) !== false;
+            });
+            $availableCourses = array_values($availableCourses); // Re-index array
+        }
+
+        return $this->response->setJSON([
+            'success' => true,
+            'courses' => $availableCourses,
+            'query' => $query,
+            'count' => count($availableCourses)
+        ]);
+    }
+
+    /**
      * List all courses (for teachers/admins)
      */
     public function index()

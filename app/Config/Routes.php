@@ -33,6 +33,10 @@ $routes->get('/courses/deleteMaterials/(:num)', 'Course::deleteMaterials/$1');
 // Course enrollment
 $routes->post('/course/enroll', 'Course::enroll');
 $routes->get('/course/enrolled', 'Course::getEnrolledCourses');
+$routes->get('/course/search', 'Course::search');
+$routes->post('/course/search', 'Course::search');
+$routes->get('/course/getAvailableCourses', 'Course::getAvailableCourses');
+$routes->post('/course/getAvailableCourses', 'Course::getAvailableCourses');
 
 // Materials management
 $routes->get('/courses/upload/(:num)', 'Course::upload/$1');

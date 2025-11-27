@@ -163,6 +163,8 @@ class Auth extends BaseController
                 $userModel = new \App\Models\UserModel();
                 $data['stats']['admin']['usersTotal'] = $userModel->countAllResults();
                 $data['stats']['admin']['coursesTotal'] = $this->courseModel->countAllResults();
+                // Load all courses for admin dashboard search
+                $data['courses'] = $this->courseModel->getAllCourses();
             }
 
             if ($role === 'student') {
