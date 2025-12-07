@@ -52,4 +52,11 @@ $routes->get('/debug', 'Home::debug');
 $routes->get('/notifications', 'Notifications::get');
 $routes->post('/notifications/mark_read/(:num)', 'Notifications::mark_as_read/$1');
 
+// Admin - user management
+$routes->get('/admin/users', 'Admin::users');
+$routes->get('/admin/users/create', 'Admin::createUser');
+$routes->post('/admin/users/store', 'Admin::storeUser');
+$routes->post('/admin/users/toggle/(:num)', 'Admin::toggleUserStatus/$1');
+$routes->get('/admin/users/edit/(:num)', 'Admin::editUser/$1');
+$routes->post('/admin/users/update/(:num)', 'Admin::updateUser/$1');
 

@@ -15,6 +15,7 @@
                     <?php if ($role === 'admin'): ?>
                         <li class="nav-item"><a href="<?= site_url('/courses') ?>" class="nav-link">Manage Courses</a></li>
                         <li class="nav-item"><a href="<?= site_url('/courses/create') ?>" class="nav-link">Create Course</a></li>
+                        <li class="nav-item"><a href="<?= site_url('/admin/users') ?>" class="nav-link">Manage Users</a></li>
                     <?php elseif ($role === 'teacher'): ?>
                         <li class="nav-item"><a href="<?= site_url('/courses') ?>" class="nav-link">My Courses</a></li>
                         <li class="nav-item"><a href="<?= site_url('/courses/create') ?>" class="nav-link">Create Course</a></li>

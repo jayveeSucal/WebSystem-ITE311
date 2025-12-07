@@ -241,11 +241,11 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    <h5>System Settings</h5>
+                    <h5>User Management</h5>
                 </div>
                 <div class="card-body">
-                    <p>Configure system settings and preferences</p>
-                    <a href="#" class="btn btn-secondary">Settings</a>
+                    <p>View and manage all registered users</p>
+                    <a href="<?= base_url('admin/users') ?>" class="btn btn-secondary">Manage Users</a>
                 </div>
             </div>
         </div>
