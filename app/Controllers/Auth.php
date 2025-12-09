@@ -25,6 +25,9 @@ class Auth extends BaseController
             $userModel = new \App\Models\UserModel();
             $user = $userModel->where('email', $email)->first();
             if ($user && password_verify($password, $user['password'])) {
+                if ((int) ($user['active'] ?? 1) !== 1) {
+                    return redirect()->back()->with('login_error', 'Your account has been deactivated. Please contact an administrator.');
+                }
                 // Normalize role values to a supported set to avoid drift like "instructor"
                 $rawRole = (string) ($user['role'] ?? 'student');
                 $normalizedRole = $rawRole;

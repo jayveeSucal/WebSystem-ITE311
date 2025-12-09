@@ -130,6 +130,7 @@ class Admin extends BaseController
         $userModel = new UserModel();
         $user = $userModel->find($id);
         if (! $user) {
+            log_message('error', 'User not found with ID: ' . $id);
             return redirect()->to(base_url('admin/users'))->with('user_error', 'User not found.');
         }
 
