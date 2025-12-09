@@ -27,6 +27,7 @@ class Admin extends BaseController
             'user' => [
                 'name' => $session->get('userName'),
                 'email' => $session->get('userEmail'),
+                'id' => $session->get('userId'),
             ],
         ];
 
@@ -134,6 +135,11 @@ class Admin extends BaseController
             return redirect()->to(base_url('admin/users'))->with('user_error', 'User not found.');
         }
 
+        // Prevent admin from deactivating themselves
+        if ($user['role'] === 'admin' && $id == $session->get('userId')) {
+            return redirect()->to(base_url('admin/users'))->with('user_error', 'You cannot deactivate your own admin account.');
+        }
+
         $current = (int) ($user['active'] ?? 1);
         $new = $current ? 0 : 1;
 
@@ -168,6 +174,7 @@ class Admin extends BaseController
             'user' => [
                 'name' => $session->get('userName'),
                 'email' => $session->get('userEmail'),
+                'id' => $session->get('userId'),
             ],
         ];
 

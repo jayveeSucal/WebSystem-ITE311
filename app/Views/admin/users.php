@@ -53,14 +53,16 @@
                                     <td><?= esc($u['updated_at'] ?? '') ?></td>
                                     <td>
                                         <a href="<?= base_url('admin/users/edit/' . $u['id']) ?>" class="btn btn-sm btn-outline-primary me-1">Edit</a>
-                                        <form action="<?= base_url('admin/users/toggle/' . $u['id']) ?>" method="post" class="d-inline">
-                                            <?= csrf_field() ?>
-                                            <?php if ($isActive): ?>
-                                                <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Deactivate this user?')">Deactivate</button>
-                                            <?php else: ?>
-                                                <button type="submit" class="btn btn-sm btn-outline-success" onclick="return confirm('Activate this user?')">Activate</button>
-                                            <?php endif; ?>
-                                        </form>
+                                        <?php if (!($u['role'] === 'admin' && $u['id'] == $user['id'])): ?>
+                                            <form action="<?= base_url('admin/users/toggle/' . $u['id']) ?>" method="post" class="d-inline">
+                                                <?= csrf_field() ?>
+                                                <?php if ($isActive): ?>
+                                                    <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Deactivate this user?')">Deactivate</button>
+                                                <?php else: ?>
+                                                    <button type="submit" class="btn btn-sm btn-outline-success" onclick="return confirm('Activate this user?')">Activate</button>
+                                                <?php endif; ?>
+                                            </form>
+                                        <?php endif; ?>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

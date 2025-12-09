@@ -44,14 +44,23 @@
                         </select>
                     <?php endif; ?>
                 </div>
-                <div class="mb-3">
-                    <label for="active" class="form-label">Status</label>
-                    <?php $currentActive = (string) old('active', (string) ($editUser['active'] ?? '1')); ?>
-                    <select name="active" id="active" class="form-select" required>
-                        <option value="1" <?= $currentActive === '1' ? 'selected' : '' ?>>Active</option>
-                        <option value="0" <?= $currentActive === '0' ? 'selected' : '' ?>>Inactive</option>
-                    </select>
-                </div>
+                <?php if (!($editUser['role'] === 'admin' && $editUser['id'] == $user['id'])): ?>
+                    <div class="mb-3">
+                        <label for="active" class="form-label">Status</label>
+                        <?php $currentActive = (string) old('active', (string) ($editUser['active'] ?? '1')); ?>
+                        <select name="active" id="active" class="form-select" required>
+                            <option value="1" <?= $currentActive === '1' ? 'selected' : '' ?>>Active</option>
+                            <option value="0" <?= $currentActive === '0' ? 'selected' : '' ?>>Inactive</option>
+                        </select>
+                    </div>
+                <?php else: ?>
+                    <div class="mb-3">
+                        <label class="form-label">Status</label>
+                        <input type="text" class="form-control" value="Active (Cannot be changed for your own account)" disabled>
+                        <input type="hidden" name="active" value="1">
+                        <div class="form-text text-muted">You cannot deactivate your own admin account.</div>
+                    </div>
+                <?php endif; ?>
                 <button type="submit" class="btn btn-primary">Save Changes</button>
             </form>
         </div>
