@@ -86,8 +86,16 @@ class Auth extends BaseController
                 return redirect()->back()->withInput()->with('register_error', 'All fields are required.');
             }
 
+            if (! preg_match('/^[A-Za-z\s]+$/', $name)) {
+                return redirect()->back()->withInput()->with('register_error', 'Name may only contain letters and spaces.');
+            }
+
             if (! filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 return redirect()->back()->withInput()->with('register_error', 'Invalid email address.');
+            }
+
+            if (! preg_match('/^[A-Za-z0-9._@-]+$/', $email)) {
+                return redirect()->back()->withInput()->with('register_error', 'Email contains invalid characters.');
             }
 
             if ($password !== $passwordConfirm) {
@@ -191,5 +199,93 @@ class Auth extends BaseController
 
         // Render unified dashboard with role-conditional content
         return view('auth/dashboard', $data);
+    }
+
+    /**
+     * Allow logged-in users to update their own email and password.
+     * Requires current password to confirm identity.
+     */
+    public function settings()
+    {
+        $session = session();
+        if (! $session->get('isLoggedIn')) {
+            return redirect()->to(base_url('login'));
+        }
+
+        $userId = (int) $session->get('userId');
+        $userModel = new \App\Models\UserModel();
+        $user = $userModel->find($userId);
+        if (! $user) {
+            return redirect()->to(base_url('login'));
+        }
+
+        if ($this->request->getMethod(true) === 'POST') {
+            $email = trim((string) $this->request->getPost('email'));
+            $currentPassword = (string) $this->request->getPost('current_password');
+            $newPassword = (string) $this->request->getPost('new_password');
+            $newPasswordConfirm = (string) $this->request->getPost('new_password_confirm');
+
+            if ($email === '' || $currentPassword === '') {
+                return redirect()->back()->withInput()->with('settings_error', 'Email and current password are required.');
+            }
+
+            if (! password_verify($currentPassword, $user['password'])) {
+                return redirect()->back()->withInput()->with('settings_error', 'Current password is incorrect.');
+            }
+
+            if (! filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                return redirect()->back()->withInput()->with('settings_error', 'Invalid email address.');
+            }
+
+            if (! preg_match('/^[A-Za-z0-9._@-]+$/', $email)) {
+                return redirect()->back()->withInput()->with('settings_error', 'Email contains invalid characters.');
+            }
+
+            $existing = $userModel->where('email', $email)->where('id !=', $userId)->first();
+            if ($existing) {
+                return redirect()->back()->withInput()->with('settings_error', 'Email is already in use by another account.');
+            }
+
+            $updateData = [ 'email' => $email ];
+            $passwordChanged = false;
+
+            if ($newPassword !== '' || $newPasswordConfirm !== '') {
+                if ($newPassword === '' || $newPasswordConfirm === '') {
+                    return redirect()->back()->withInput()->with('settings_error', 'Both new password fields are required.');
+                }
+
+                if ($newPassword !== $newPasswordConfirm) {
+                    return redirect()->back()->withInput()->with('settings_error', 'New passwords do not match.');
+                }
+
+                $updateData['password'] = password_hash($newPassword, PASSWORD_DEFAULT);
+                $passwordChanged = true;
+            }
+
+            if (! $userModel->update($userId, $updateData)) {
+                return redirect()->back()->withInput()->with('settings_error', 'Failed to update settings.');
+            }
+
+            // If password changed, force logout and require re-login
+            if ($passwordChanged) {
+                $session->destroy();
+                return redirect()->to(base_url('login'))->with('settings_success', 'Password updated successfully. Please log in again.');
+            }
+
+            // Email-only change: refresh session email and stay logged in
+            $session->set('userEmail', $email);
+
+            return redirect()->back()->with('settings_success', 'Settings updated successfully.');
+        }
+
+        $data = [
+            'title' => 'Account Settings',
+            'user' => [
+                'name' => $session->get('userName'),
+                'email' => $session->get('userEmail'),
+            ],
+        ];
+
+        return view('auth/settings', $data);
     }
 }

@@ -5,8 +5,15 @@
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="mb-0">Course Management</h1>
         <div>
-            <a href="<?= base_url('dashboard') ?>" class="btn btn-secondary me-2">Back to Dashboard</a>
-            <a href="<?= base_url('courses/create') ?>" class="btn btn-primary">Create New Course</a>
+            <a href="<?= base_url('dashboard') ?>" class="btn btn-secondary">Back to Dashboard</a>
+        </div>
+    </div>
+
+    <!-- Internal actions toolbar -->
+    <div class="mb-3">
+        <div class="d-flex flex-wrap align-items-center gap-2">
+            <a href="<?= base_url('courses/create') ?>" class="btn btn-primary">Create Course</a>
+            <a href="<?= base_url('admin/courses/schedule') ?>" class="btn btn-outline-primary">Course Schedule</a>
         </div>
     </div>
 

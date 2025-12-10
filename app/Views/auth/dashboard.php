@@ -226,23 +226,20 @@
         </div>
     </div>
 
-    <div class="row mt-4">
+    <h4 class="mt-4">Management</h4>
+    <div class="row g-3">
         <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    <h5>Course Management</h5>
-                </div>
+            <div class="card h-100">
+                <div class="card-header"><h5 class="mb-0">Course Management</h5></div>
                 <div class="card-body">
-                    <p>Manage courses and upload materials</p>
+                    <p>Create and manage courses</p>
                     <a href="<?= base_url('courses') ?>" class="btn btn-primary">Manage Courses</a>
                 </div>
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    <h5>User Management</h5>
-                </div>
+            <div class="card h-100">
+                <div class="card-header"><h5 class="mb-0">User Management</h5></div>
                 <div class="card-body">
                     <p>View and manage all registered users</p>
                     <a href="<?= base_url('admin/users') ?>" class="btn btn-secondary">Manage Users</a>
@@ -251,6 +248,52 @@
         </div>
     </div>
 
+    <h4 class="mt-4">Academic</h4>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header"><h5 class="mb-0">Academic Structure</h5></div>
+                <div class="card-body d-flex flex-column">
+                    <p class="mb-3">Manage school years, semesters, and terms</p>
+                    <div class="mt-auto">
+                        <a href="<?= base_url('admin/academic') ?>" class="btn btn-primary w-100">Open</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h4 class="mt-4">Teaching</h4>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header"><h5 class="mb-0">Teacher Assignments</h5></div>
+                <div class="card-body d-flex flex-column">
+                    <p class="mb-3">Assign teachers to the courses they will handle each term or semester.</p>
+                    <div class="mt-auto">
+                        <a href="<?= base_url('admin/teacher-assignments') ?>" class="btn btn-primary w-100">Open</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h4 class="mt-4">Records & Reports</h4>
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header"><h5 class="mb-0">Completed Course</h5></div>
+                <div class="card-body d-flex flex-column">
+                    <p class="mb-3">View completed course and history</p>
+                    <div class="mt-auto">
+                        <a href="<?= base_url('admin/completed-courses') ?>" class="btn btn-primary w-100">Open</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
     <!-- All Courses Section with Search -->
     <div class="row mt-4">
         <div class="col-12">

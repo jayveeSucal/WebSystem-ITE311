@@ -1,0 +1,880 @@
+ERROR - 2025-12-10 13:28:57 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'lms_bajarias', 3306, '', 0)
+#1 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ITE311-BAJARIAS\system\Model.php(675): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#5 C:\xampp\htdocs\ITE311-BAJARIAS\app\Models\NotificationModel.php(19): CodeIgniter\Model->countAllResults()
+#6 C:\xampp\htdocs\ITE311-BAJARIAS\app\Controllers\BaseController.php(64): App\Models\NotificationModel->getUnreadCount('4')
+#7 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#8 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+#9 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#3 C:\xampp\htdocs\ITE311-BAJARIAS\system\Model.php(675): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#4 C:\xampp\htdocs\ITE311-BAJARIAS\app\Models\NotificationModel.php(19): CodeIgniter\Model->countAllResults()
+#5 C:\xampp\htdocs\ITE311-BAJARIAS\app\Controllers\BaseController.php(64): App\Models\NotificationModel->getUnreadCount('4')
+#6 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#7 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+#8 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2025-12-10 13:29:01 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'lms_bajarias', 3306, '', 0)
+#1 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `enrollm...', Array, false)
+#4 C:\xampp\htdocs\ITE311-BAJARIAS\app\Models\EnrollmentModel.php(41): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-BAJARIAS\app\Controllers\Course.php(121): App\Models\EnrollmentModel->getUserEnrollments('4')
+#6 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(933): App\Controllers\Course->getEnrolledCourses()
+#7 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+#8 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `enrollm...', Array, false)
+#3 C:\xampp\htdocs\ITE311-BAJARIAS\app\Models\EnrollmentModel.php(41): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\ITE311-BAJARIAS\app\Controllers\Course.php(121): App\Models\EnrollmentModel->getUserEnrollments('4')
+#5 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(933): App\Controllers\Course->getEnrolledCourses()
+#6 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+#7 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2025-12-10 13:29:01 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: course/enrolled]
+in SYSTEMPATH\Database\BaseConnection.php on line 465.
+ 1 SYSTEMPATH\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `enrollments`.*, `courses`.`title`, `courses`.`description`, `courses`.`created_at` as `course_created`
+FROM `enrollments`
+JOIN `courses` ON `courses`.`id` = `enrollments`.`course_id`
+WHERE `enrollments`.`user_id` = :enrollments.user_id:', [...], false)
+ 3 APPPATH\Models\EnrollmentModel.php(41): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Course.php(121): App\Models\EnrollmentModel->getUserEnrollments('4')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getEnrolledCourses()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-12-10 13:29:06 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'lms_bajarias', 3306, '', 0)
+#1 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ITE311-BAJARIAS\system\Model.php(675): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#5 C:\xampp\htdocs\ITE311-BAJARIAS\app\Models\NotificationModel.php(19): CodeIgniter\Model->countAllResults()
+#6 C:\xampp\htdocs\ITE311-BAJARIAS\app\Controllers\BaseController.php(64): App\Models\NotificationModel->getUnreadCount('4')
+#7 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#8 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+#9 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#3 C:\xampp\htdocs\ITE311-BAJARIAS\system\Model.php(675): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#4 C:\xampp\htdocs\ITE311-BAJARIAS\app\Models\NotificationModel.php(19): CodeIgniter\Model->countAllResults()
+#5 C:\xampp\htdocs\ITE311-BAJARIAS\app\Controllers\BaseController.php(64): App\Models\NotificationModel->getUnreadCount('4')
+#6 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#7 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+#8 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2025-12-10 13:29:10 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'lms_bajarias', 3306, '', 0)
+#1 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ITE311-BAJARIAS\system\Model.php(675): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#5 C:\xampp\htdocs\ITE311-BAJARIAS\app\Models\NotificationModel.php(19): CodeIgniter\Model->countAllResults()
+#6 C:\xampp\htdocs\ITE311-BAJARIAS\app\Controllers\Notifications.php(24): App\Models\NotificationModel->getUnreadCount('4')
+#7 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(933): App\Controllers\Notifications->get()
+#8 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Notifications))
+#9 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#3 C:\xampp\htdocs\ITE311-BAJARIAS\system\Model.php(675): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#4 C:\xampp\htdocs\ITE311-BAJARIAS\app\Models\NotificationModel.php(19): CodeIgniter\Model->countAllResults()
+#5 C:\xampp\htdocs\ITE311-BAJARIAS\app\Controllers\Notifications.php(24): App\Models\NotificationModel->getUnreadCount('4')
+#6 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(933): App\Controllers\Notifications->get()
+#7 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Notifications))
+#8 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2025-12-10 13:29:10 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: notifications]
+in SYSTEMPATH\Database\BaseConnection.php on line 465.
+ 1 SYSTEMPATH\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `notifications`
+WHERE `user_id` = :user_id:
+AND `is_read` = :is_read:', [...], false)
+ 3 SYSTEMPATH\Model.php(675): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+ 4 APPPATH\Models\NotificationModel.php(19): CodeIgniter\Model->countAllResults()
+ 5 APPPATH\Controllers\Notifications.php(24): App\Models\NotificationModel->getUnreadCount('4')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Notifications->get()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Notifications))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-12-10 13:29:14 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'lms_bajarias', 3306, '', 0)
+#1 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\ITE311-BAJARIAS\system\Model.php(675): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#5 C:\xampp\htdocs\ITE311-BAJARIAS\app\Models\NotificationModel.php(19): CodeIgniter\Model->countAllResults()
+#6 C:\xampp\htdocs\ITE311-BAJARIAS\app\Controllers\BaseController.php(64): App\Models\NotificationModel->getUnreadCount('4')
+#7 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#8 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+#9 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:246
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(419): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(614): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1733): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#3 C:\xampp\htdocs\ITE311-BAJARIAS\system\Model.php(675): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#4 C:\xampp\htdocs\ITE311-BAJARIAS\app\Models\NotificationModel.php(19): CodeIgniter\Model->countAllResults()
+#5 C:\xampp\htdocs\ITE311-BAJARIAS\app\Controllers\BaseController.php(64): App\Models\NotificationModel->getUnreadCount('4')
+#6 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(904): App\Controllers\BaseController->initController(Object(CodeIgniter\HTTP\IncomingRequest), Object(CodeIgniter\HTTP\Response), Object(CodeIgniter\Log\Logger))
+#7 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+#8 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\xampp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+ERROR - 2025-12-10 13:59:09 --> mysqli_sql_exception: Table 'lms_bajarias.departments' doesn't exist in C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `s`.*, `...', 0)
+#1 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `s`.*, `...')
+#2 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `s`.*, `...')
+#3 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `s`.*, `...', Array, false)
+#4 C:\xampp\htdocs\ITE311-BAJARIAS\app\Controllers\Admin.php(630): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(933): App\Controllers\Admin->studentRecords()
+#6 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2025-12-10 13:59:09 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'lms_bajarias.departments' doesn't exist
+[Method: GET, Route: admin/student-records]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `s`.*, `u`.`name` AS `user_name`, `u`.`email`, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`, `p`.`code` AS `prog_code`, `p`.`name` AS `prog_name`
+FROM `students` `s`
+LEFT JOIN `users` `u` ON `u`.`id` = `s`.`user_id`
+LEFT JOIN `departments` `d` ON `d`.`id` = `s`.`department_id`
+LEFT JOIN `programs` `p` ON `p`.`id` = `s`.`program_id`
+ORDER BY `u`.`name` ASC', [], false)
+ 2 APPPATH\Controllers\Admin.php(630): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->studentRecords()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 13:59:09 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'lms_bajarias.departments' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `s`.*, `u`.`name` AS `user_name`, `u`.`email`, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`, `p`.`code` AS `prog_code`, `p`.`name` AS `prog_name`
+FROM `students` `s`
+LEFT JOIN `users` `u` ON `u`.`id` = `s`.`user_id`
+LEFT JOIN `departments` `d` ON `d`.`id` = `s`.`department_id`
+LEFT JOIN `programs` `p` ON `p`.`id` = `s`.`program_id`
+ORDER BY `u`.`name` ASC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `s`.*, `u`.`name` AS `user_name`, `u`.`email`, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`, `p`.`code` AS `prog_code`, `p`.`name` AS `prog_name`
+FROM `students` `s`
+LEFT JOIN `users` `u` ON `u`.`id` = `s`.`user_id`
+LEFT JOIN `departments` `d` ON `d`.`id` = `s`.`department_id`
+LEFT JOIN `programs` `p` ON `p`.`id` = `s`.`program_id`
+ORDER BY `u`.`name` ASC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `s`.*, `u`.`name` AS `user_name`, `u`.`email`, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`, `p`.`code` AS `prog_code`, `p`.`name` AS `prog_name`
+FROM `students` `s`
+LEFT JOIN `users` `u` ON `u`.`id` = `s`.`user_id`
+LEFT JOIN `departments` `d` ON `d`.`id` = `s`.`department_id`
+LEFT JOIN `programs` `p` ON `p`.`id` = `s`.`program_id`
+ORDER BY `u`.`name` ASC', [], false)
+ 4 APPPATH\Controllers\Admin.php(630): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->studentRecords()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 13:59:09 --> [Caused by] mysqli_sql_exception: Table 'lms_bajarias.departments' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `s`.*, `u`.`name` AS `user_name`, `u`.`email`, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`, `p`.`code` AS `prog_code`, `p`.`name` AS `prog_name`
+FROM `students` `s`
+LEFT JOIN `users` `u` ON `u`.`id` = `s`.`user_id`
+LEFT JOIN `departments` `d` ON `d`.`id` = `s`.`department_id`
+LEFT JOIN `programs` `p` ON `p`.`id` = `s`.`program_id`
+ORDER BY `u`.`name` ASC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `s`.*, `u`.`name` AS `user_name`, `u`.`email`, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`, `p`.`code` AS `prog_code`, `p`.`name` AS `prog_name`
+FROM `students` `s`
+LEFT JOIN `users` `u` ON `u`.`id` = `s`.`user_id`
+LEFT JOIN `departments` `d` ON `d`.`id` = `s`.`department_id`
+LEFT JOIN `programs` `p` ON `p`.`id` = `s`.`program_id`
+ORDER BY `u`.`name` ASC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `s`.*, `u`.`name` AS `user_name`, `u`.`email`, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`, `p`.`code` AS `prog_code`, `p`.`name` AS `prog_name`
+FROM `students` `s`
+LEFT JOIN `users` `u` ON `u`.`id` = `s`.`user_id`
+LEFT JOIN `departments` `d` ON `d`.`id` = `s`.`department_id`
+LEFT JOIN `programs` `p` ON `p`.`id` = `s`.`program_id`
+ORDER BY `u`.`name` ASC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `s`.*, `u`.`name` AS `user_name`, `u`.`email`, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`, `p`.`code` AS `prog_code`, `p`.`name` AS `prog_name`
+FROM `students` `s`
+LEFT JOIN `users` `u` ON `u`.`id` = `s`.`user_id`
+LEFT JOIN `departments` `d` ON `d`.`id` = `s`.`department_id`
+LEFT JOIN `programs` `p` ON `p`.`id` = `s`.`program_id`
+ORDER BY `u`.`name` ASC', [], false)
+ 5 APPPATH\Controllers\Admin.php(630): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->studentRecords()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-12-10 14:20:10 --> mysqli_sql_exception: Unknown column 'code' in 'order clause' in C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ITE311-BAJARIAS\app\Controllers\Admin.php(356): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(933): App\Controllers\Admin->createCourseOffering()
+#6 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2025-12-10 14:20:10 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'code' in 'order clause'
+[Method: GET, Route: admin/courses/offering/create]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `courses`
+ORDER BY `code` ASC', [], false)
+ 2 APPPATH\Controllers\Admin.php(356): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->createCourseOffering()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 14:20:10 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'code' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `courses`
+ORDER BY `code` ASC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `courses`
+ORDER BY `code` ASC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `courses`
+ORDER BY `code` ASC', [], false)
+ 4 APPPATH\Controllers\Admin.php(356): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->createCourseOffering()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 14:20:10 --> [Caused by] mysqli_sql_exception: Unknown column 'code' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *
+FROM `courses`
+ORDER BY `code` ASC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `courses`
+ORDER BY `code` ASC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `courses`
+ORDER BY `code` ASC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `courses`
+ORDER BY `code` ASC', [], false)
+ 5 APPPATH\Controllers\Admin.php(356): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->createCourseOffering()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-12-10 15:04:40 --> mysqli_sql_exception: Table 'lms_bajarias.departments' doesn't exist in C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `s`.*, `...', 0)
+#1 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `s`.*, `...')
+#2 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `s`.*, `...')
+#3 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `s`.*, `...', Array, false)
+#4 C:\xampp\htdocs\ITE311-BAJARIAS\app\Controllers\Admin.php(631): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(933): App\Controllers\Admin->studentRecords()
+#6 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2025-12-10 15:04:40 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'lms_bajarias.departments' doesn't exist
+[Method: GET, Route: admin/student-records]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `s`.*, `u`.`name` AS `user_name`, `u`.`email`, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`, `p`.`code` AS `prog_code`, `p`.`name` AS `prog_name`
+FROM `students` `s`
+LEFT JOIN `users` `u` ON `u`.`id` = `s`.`user_id`
+LEFT JOIN `departments` `d` ON `d`.`id` = `s`.`department_id`
+LEFT JOIN `programs` `p` ON `p`.`id` = `s`.`program_id`
+ORDER BY `u`.`name` ASC', [], false)
+ 2 APPPATH\Controllers\Admin.php(631): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->studentRecords()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 15:04:40 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'lms_bajarias.departments' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `s`.*, `u`.`name` AS `user_name`, `u`.`email`, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`, `p`.`code` AS `prog_code`, `p`.`name` AS `prog_name`
+FROM `students` `s`
+LEFT JOIN `users` `u` ON `u`.`id` = `s`.`user_id`
+LEFT JOIN `departments` `d` ON `d`.`id` = `s`.`department_id`
+LEFT JOIN `programs` `p` ON `p`.`id` = `s`.`program_id`
+ORDER BY `u`.`name` ASC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `s`.*, `u`.`name` AS `user_name`, `u`.`email`, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`, `p`.`code` AS `prog_code`, `p`.`name` AS `prog_name`
+FROM `students` `s`
+LEFT JOIN `users` `u` ON `u`.`id` = `s`.`user_id`
+LEFT JOIN `departments` `d` ON `d`.`id` = `s`.`department_id`
+LEFT JOIN `programs` `p` ON `p`.`id` = `s`.`program_id`
+ORDER BY `u`.`name` ASC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `s`.*, `u`.`name` AS `user_name`, `u`.`email`, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`, `p`.`code` AS `prog_code`, `p`.`name` AS `prog_name`
+FROM `students` `s`
+LEFT JOIN `users` `u` ON `u`.`id` = `s`.`user_id`
+LEFT JOIN `departments` `d` ON `d`.`id` = `s`.`department_id`
+LEFT JOIN `programs` `p` ON `p`.`id` = `s`.`program_id`
+ORDER BY `u`.`name` ASC', [], false)
+ 4 APPPATH\Controllers\Admin.php(631): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->studentRecords()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 15:04:40 --> [Caused by] mysqli_sql_exception: Table 'lms_bajarias.departments' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `s`.*, `u`.`name` AS `user_name`, `u`.`email`, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`, `p`.`code` AS `prog_code`, `p`.`name` AS `prog_name`
+FROM `students` `s`
+LEFT JOIN `users` `u` ON `u`.`id` = `s`.`user_id`
+LEFT JOIN `departments` `d` ON `d`.`id` = `s`.`department_id`
+LEFT JOIN `programs` `p` ON `p`.`id` = `s`.`program_id`
+ORDER BY `u`.`name` ASC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `s`.*, `u`.`name` AS `user_name`, `u`.`email`, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`, `p`.`code` AS `prog_code`, `p`.`name` AS `prog_name`
+FROM `students` `s`
+LEFT JOIN `users` `u` ON `u`.`id` = `s`.`user_id`
+LEFT JOIN `departments` `d` ON `d`.`id` = `s`.`department_id`
+LEFT JOIN `programs` `p` ON `p`.`id` = `s`.`program_id`
+ORDER BY `u`.`name` ASC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `s`.*, `u`.`name` AS `user_name`, `u`.`email`, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`, `p`.`code` AS `prog_code`, `p`.`name` AS `prog_name`
+FROM `students` `s`
+LEFT JOIN `users` `u` ON `u`.`id` = `s`.`user_id`
+LEFT JOIN `departments` `d` ON `d`.`id` = `s`.`department_id`
+LEFT JOIN `programs` `p` ON `p`.`id` = `s`.`program_id`
+ORDER BY `u`.`name` ASC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `s`.*, `u`.`name` AS `user_name`, `u`.`email`, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`, `p`.`code` AS `prog_code`, `p`.`name` AS `prog_name`
+FROM `students` `s`
+LEFT JOIN `users` `u` ON `u`.`id` = `s`.`user_id`
+LEFT JOIN `departments` `d` ON `d`.`id` = `s`.`department_id`
+LEFT JOIN `programs` `p` ON `p`.`id` = `s`.`program_id`
+ORDER BY `u`.`name` ASC', [], false)
+ 5 APPPATH\Controllers\Admin.php(631): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->studentRecords()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-12-10 15:14:29 --> mysqli_sql_exception: Table 'lms_bajarias.departments' doesn't exist in C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ITE311-BAJARIAS\app\Controllers\Admin.php(440): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(933): App\Controllers\Admin->departments()
+#6 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2025-12-10 15:14:29 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'lms_bajarias.departments' doesn't exist
+[Method: GET, Route: admin/departments]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `departments`
+ORDER BY `code` ASC', [], false)
+ 2 APPPATH\Controllers\Admin.php(440): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->departments()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 15:14:29 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'lms_bajarias.departments' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `departments`
+ORDER BY `code` ASC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `departments`
+ORDER BY `code` ASC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `departments`
+ORDER BY `code` ASC', [], false)
+ 4 APPPATH\Controllers\Admin.php(440): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->departments()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 15:14:29 --> [Caused by] mysqli_sql_exception: Table 'lms_bajarias.departments' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *
+FROM `departments`
+ORDER BY `code` ASC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `departments`
+ORDER BY `code` ASC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `departments`
+ORDER BY `code` ASC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `departments`
+ORDER BY `code` ASC', [], false)
+ 5 APPPATH\Controllers\Admin.php(440): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->departments()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-12-10 15:15:52 --> mysqli_sql_exception: Table 'lms_bajarias.departments' doesn't exist in C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ITE311-BAJARIAS\app\Controllers\Admin.php(440): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(933): App\Controllers\Admin->departments()
+#6 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2025-12-10 15:15:52 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'lms_bajarias.departments' doesn't exist
+[Method: GET, Route: admin/departments]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `departments`
+ORDER BY `code` ASC', [], false)
+ 2 APPPATH\Controllers\Admin.php(440): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->departments()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 15:15:52 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'lms_bajarias.departments' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `departments`
+ORDER BY `code` ASC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `departments`
+ORDER BY `code` ASC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `departments`
+ORDER BY `code` ASC', [], false)
+ 4 APPPATH\Controllers\Admin.php(440): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->departments()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 15:15:52 --> [Caused by] mysqli_sql_exception: Table 'lms_bajarias.departments' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *
+FROM `departments`
+ORDER BY `code` ASC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `departments`
+ORDER BY `code` ASC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `departments`
+ORDER BY `code` ASC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `departments`
+ORDER BY `code` ASC', [], false)
+ 5 APPPATH\Controllers\Admin.php(440): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->departments()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-12-10 15:20:04 --> mysqli_sql_exception: Table 'lms_bajarias.departments' doesn't exist in C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `s`.*, `...', 0)
+#1 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `s`.*, `...')
+#2 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `s`.*, `...')
+#3 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `s`.*, `...', Array, false)
+#4 C:\xampp\htdocs\ITE311-BAJARIAS\app\Controllers\Admin.php(631): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(933): App\Controllers\Admin->studentRecords()
+#6 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2025-12-10 15:20:04 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'lms_bajarias.departments' doesn't exist
+[Method: GET, Route: admin/student-records]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `s`.*, `u`.`name` AS `user_name`, `u`.`email`, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`, `p`.`code` AS `prog_code`, `p`.`name` AS `prog_name`
+FROM `students` `s`
+LEFT JOIN `users` `u` ON `u`.`id` = `s`.`user_id`
+LEFT JOIN `departments` `d` ON `d`.`id` = `s`.`department_id`
+LEFT JOIN `programs` `p` ON `p`.`id` = `s`.`program_id`
+ORDER BY `u`.`name` ASC', [], false)
+ 2 APPPATH\Controllers\Admin.php(631): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->studentRecords()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 15:20:04 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'lms_bajarias.departments' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `s`.*, `u`.`name` AS `user_name`, `u`.`email`, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`, `p`.`code` AS `prog_code`, `p`.`name` AS `prog_name`
+FROM `students` `s`
+LEFT JOIN `users` `u` ON `u`.`id` = `s`.`user_id`
+LEFT JOIN `departments` `d` ON `d`.`id` = `s`.`department_id`
+LEFT JOIN `programs` `p` ON `p`.`id` = `s`.`program_id`
+ORDER BY `u`.`name` ASC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `s`.*, `u`.`name` AS `user_name`, `u`.`email`, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`, `p`.`code` AS `prog_code`, `p`.`name` AS `prog_name`
+FROM `students` `s`
+LEFT JOIN `users` `u` ON `u`.`id` = `s`.`user_id`
+LEFT JOIN `departments` `d` ON `d`.`id` = `s`.`department_id`
+LEFT JOIN `programs` `p` ON `p`.`id` = `s`.`program_id`
+ORDER BY `u`.`name` ASC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `s`.*, `u`.`name` AS `user_name`, `u`.`email`, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`, `p`.`code` AS `prog_code`, `p`.`name` AS `prog_name`
+FROM `students` `s`
+LEFT JOIN `users` `u` ON `u`.`id` = `s`.`user_id`
+LEFT JOIN `departments` `d` ON `d`.`id` = `s`.`department_id`
+LEFT JOIN `programs` `p` ON `p`.`id` = `s`.`program_id`
+ORDER BY `u`.`name` ASC', [], false)
+ 4 APPPATH\Controllers\Admin.php(631): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->studentRecords()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 15:20:04 --> [Caused by] mysqli_sql_exception: Table 'lms_bajarias.departments' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `s`.*, `u`.`name` AS `user_name`, `u`.`email`, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`, `p`.`code` AS `prog_code`, `p`.`name` AS `prog_name`
+FROM `students` `s`
+LEFT JOIN `users` `u` ON `u`.`id` = `s`.`user_id`
+LEFT JOIN `departments` `d` ON `d`.`id` = `s`.`department_id`
+LEFT JOIN `programs` `p` ON `p`.`id` = `s`.`program_id`
+ORDER BY `u`.`name` ASC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `s`.*, `u`.`name` AS `user_name`, `u`.`email`, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`, `p`.`code` AS `prog_code`, `p`.`name` AS `prog_name`
+FROM `students` `s`
+LEFT JOIN `users` `u` ON `u`.`id` = `s`.`user_id`
+LEFT JOIN `departments` `d` ON `d`.`id` = `s`.`department_id`
+LEFT JOIN `programs` `p` ON `p`.`id` = `s`.`program_id`
+ORDER BY `u`.`name` ASC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `s`.*, `u`.`name` AS `user_name`, `u`.`email`, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`, `p`.`code` AS `prog_code`, `p`.`name` AS `prog_name`
+FROM `students` `s`
+LEFT JOIN `users` `u` ON `u`.`id` = `s`.`user_id`
+LEFT JOIN `departments` `d` ON `d`.`id` = `s`.`department_id`
+LEFT JOIN `programs` `p` ON `p`.`id` = `s`.`program_id`
+ORDER BY `u`.`name` ASC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `s`.*, `u`.`name` AS `user_name`, `u`.`email`, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`, `p`.`code` AS `prog_code`, `p`.`name` AS `prog_name`
+FROM `students` `s`
+LEFT JOIN `users` `u` ON `u`.`id` = `s`.`user_id`
+LEFT JOIN `departments` `d` ON `d`.`id` = `s`.`department_id`
+LEFT JOIN `programs` `p` ON `p`.`id` = `s`.`program_id`
+ORDER BY `u`.`name` ASC', [], false)
+ 5 APPPATH\Controllers\Admin.php(631): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->studentRecords()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 15:28:58 --> Error: Call to undefined function set_select()
+[Method: GET, Route: admin/courses/offering/create]
+in APPPATH\Views\admin\create_course_offering.php on line 21.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('admin/create_course_offering', [], true)
+ 4 APPPATH\Controllers\Admin.php(370): view('admin/create_course_offering', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->createCourseOffering()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-12-10 15:29:02 --> mysqli_sql_exception: Table 'lms_bajarias.departments' doesn't exist in C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ITE311-BAJARIAS\app\Controllers\Admin.php(440): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(933): App\Controllers\Admin->departments()
+#6 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2025-12-10 15:29:02 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'lms_bajarias.departments' doesn't exist
+[Method: GET, Route: admin/departments]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `departments`
+ORDER BY `code` ASC', [], false)
+ 2 APPPATH\Controllers\Admin.php(440): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->departments()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 15:29:02 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'lms_bajarias.departments' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `departments`
+ORDER BY `code` ASC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `departments`
+ORDER BY `code` ASC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `departments`
+ORDER BY `code` ASC', [], false)
+ 4 APPPATH\Controllers\Admin.php(440): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->departments()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 15:29:02 --> [Caused by] mysqli_sql_exception: Table 'lms_bajarias.departments' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *
+FROM `departments`
+ORDER BY `code` ASC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `departments`
+ORDER BY `code` ASC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `departments`
+ORDER BY `code` ASC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `departments`
+ORDER BY `code` ASC', [], false)
+ 5 APPPATH\Controllers\Admin.php(440): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->departments()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-12-10 17:44:12 --> mysqli_sql_exception: Table 'lms_bajarias.departments' doesn't exist in C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\ITE311-BAJARIAS\app\Controllers\Admin.php(440): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(933): App\Controllers\Admin->departments()
+#6 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2025-12-10 17:44:12 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'lms_bajarias.departments' doesn't exist
+[Method: GET, Route: admin/departments]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `departments`
+ORDER BY `code` ASC', [], false)
+ 2 APPPATH\Controllers\Admin.php(440): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->departments()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 17:44:12 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'lms_bajarias.departments' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `departments`
+ORDER BY `code` ASC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `departments`
+ORDER BY `code` ASC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `departments`
+ORDER BY `code` ASC', [], false)
+ 4 APPPATH\Controllers\Admin.php(440): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->departments()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 17:44:12 --> [Caused by] mysqli_sql_exception: Table 'lms_bajarias.departments' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *
+FROM `departments`
+ORDER BY `code` ASC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `departments`
+ORDER BY `code` ASC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `departments`
+ORDER BY `code` ASC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `departments`
+ORDER BY `code` ASC', [], false)
+ 5 APPPATH\Controllers\Admin.php(440): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->departments()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-12-10 17:44:14 --> mysqli_sql_exception: Table 'lms_bajarias.programs' doesn't exist in C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.*, `...', 0)
+#1 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `...')
+#2 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `...')
+#3 C:\xampp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `...', Array, false)
+#4 C:\xampp\htdocs\ITE311-BAJARIAS\app\Controllers\Admin.php(529): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(933): App\Controllers\Admin->programs()
+#6 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 C:\xampp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2025-12-10 17:44:14 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'lms_bajarias.programs' doesn't exist
+[Method: GET, Route: admin/programs]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`
+FROM `programs` `p`
+LEFT JOIN `departments` `d` ON `d`.`id` = `p`.`department_id`
+ORDER BY `p`.`code` ASC', [], false)
+ 2 APPPATH\Controllers\Admin.php(529): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->programs()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 17:44:14 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'lms_bajarias.programs' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`
+FROM `programs` `p`
+LEFT JOIN `departments` `d` ON `d`.`id` = `p`.`department_id`
+ORDER BY `p`.`code` ASC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`
+FROM `programs` `p`
+LEFT JOIN `departments` `d` ON `d`.`id` = `p`.`department_id`
+ORDER BY `p`.`code` ASC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`
+FROM `programs` `p`
+LEFT JOIN `departments` `d` ON `d`.`id` = `p`.`department_id`
+ORDER BY `p`.`code` ASC', [], false)
+ 4 APPPATH\Controllers\Admin.php(529): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->programs()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 17:44:14 --> [Caused by] mysqli_sql_exception: Table 'lms_bajarias.programs' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT `p`.*, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`
+FROM `programs` `p`
+LEFT JOIN `departments` `d` ON `d`.`id` = `p`.`department_id`
+ORDER BY `p`.`code` ASC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `p`.*, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`
+FROM `programs` `p`
+LEFT JOIN `departments` `d` ON `d`.`id` = `p`.`department_id`
+ORDER BY `p`.`code` ASC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `p`.*, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`
+FROM `programs` `p`
+LEFT JOIN `departments` `d` ON `d`.`id` = `p`.`department_id`
+ORDER BY `p`.`code` ASC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT `p`.*, `d`.`code` AS `dept_code`, `d`.`name` AS `dept_name`
+FROM `programs` `p`
+LEFT JOIN `departments` `d` ON `d`.`id` = `p`.`department_id`
+ORDER BY `p`.`code` ASC', [], false)
+ 5 APPPATH\Controllers\Admin.php(529): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->programs()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

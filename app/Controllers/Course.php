@@ -272,6 +272,12 @@ class Course extends BaseController
 
         $title = $this->request->getPost('title');
         $description = $this->request->getPost('description');
+        $academic_year = $this->request->getPost('academic_year');
+        $semester = $this->request->getPost('semester');
+        $term = $this->request->getPost('term');
+        $schedule_time = $this->request->getPost('schedule_time');
+        $schedule_date = $this->request->getPost('schedule_date');
+        $course_number = $this->request->getPost('course_number');
         $user_id = $session->get('userId');
 
         if (empty($title) || empty($description)) {
@@ -281,6 +287,12 @@ class Course extends BaseController
         $courseData = [
             'title' => $title,
             'description' => $description,
+            'academic_year' => $academic_year,
+            'semester' => $semester,
+            'term' => $term,
+            'schedule_time' => $schedule_time,
+            'schedule_date' => $schedule_date,
+            'course_number' => $course_number,
             'user_id' => $user_id,
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),

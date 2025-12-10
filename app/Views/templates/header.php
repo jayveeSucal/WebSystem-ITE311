@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
     <div class="container">
         <a class="navbar-brand" href="<?= site_url('/') ?>">Site</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,9 +13,19 @@
                 <?php if (session('isLoggedIn')): ?>
                     <li class="nav-item"><a href="<?= site_url('/dashboard') ?>" class="nav-link">Dashboard</a></li>
                     <?php if ($role === 'admin'): ?>
-                        <li class="nav-item"><a href="<?= site_url('/courses') ?>" class="nav-link">Manage Courses</a></li>
-                        <li class="nav-item"><a href="<?= site_url('/courses/create') ?>" class="nav-link">Create Course</a></li>
-                        <li class="nav-item"><a href="<?= site_url('/admin/users') ?>" class="nav-link">Manage Users</a></li>
+                                                                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Admin
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+                                <li><h6 class="dropdown-header">Academic Management</h6></li>
+                                                                                                                                                                <li><a class="dropdown-item" href="<?= site_url('/admin/departments') ?>">Departments</a></li>
+                                <li><a class="dropdown-item" href="<?= site_url('/admin/programs') ?>">Programs</a></li>
+                                <li><a class="dropdown-item" href="<?= site_url('/admin/student-records') ?>">Student Records</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="<?= site_url('/admin/users') ?>">Manage Users</a></li>
+                            </ul>
+                        </li>
                     <?php elseif ($role === 'teacher'): ?>
                         <li class="nav-item"><a href="<?= site_url('/courses') ?>" class="nav-link">My Courses</a></li>
                         <li class="nav-item"><a href="<?= site_url('/courses/create') ?>" class="nav-link">Create Course</a></li>
@@ -44,6 +54,7 @@
                     </div>
 
                     <span class="navbar-text me-3 small"><?= esc(session('userEmail')) ?> (<?= esc($role) ?>)</span>
+                    <a href="<?= site_url('/settings') ?>" class="btn btn-outline-light me-2">Settings</a>
                     <a href="<?= site_url('/logout') ?>" class="btn btn-light text-primary">Logout</a>
                 <?php endif; ?>
             </div>
@@ -97,5 +108,3 @@
         </div>
     </div>
 </nav>
-
-

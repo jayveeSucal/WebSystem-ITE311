@@ -15,6 +15,12 @@ class CourseModel extends Model
         'title',
         'description',
         'user_id',
+        'academic_year',
+        'semester',
+        'term',
+        'schedule_time',
+        'schedule_date',
+        'course_number',
         'created_at',
         'updated_at',
     ];

@@ -18,6 +18,9 @@ $routes->get('/login', 'Auth::login');
 $routes->post('/login', 'Auth::login');
 $routes->get('/logout', 'Auth::logout');
 $routes->get('/dashboard', 'Auth::dashboard');
+// User settings
+$routes->get('/settings', 'Auth::settings');
+$routes->post('/settings', 'Auth::settings');
 // Registration
 $routes->get('/register', 'Auth::register');
 $routes->post('/register', 'Auth::register');
@@ -59,4 +62,29 @@ $routes->post('/admin/users/store', 'Admin::storeUser');
 $routes->post('/admin/users/toggle/(:num)', 'Admin::toggleUserStatus/$1');
 $routes->get('/admin/users/edit/(:num)', 'Admin::editUser/$1');
 $routes->post('/admin/users/update/(:num)', 'Admin::updateUser/$1');
+
+// Admin - course schedule
+$routes->get('/admin/courses/schedule', 'Admin::courseSchedule');
+
+// Admin - course offerings
+$routes->get('/admin/courses/offering/create', 'Admin::createCourseOffering');
+$routes->post('/admin/courses/offering/store', 'Admin::storeCourseOffering');
+
+// Admin - departments & programs
+$routes->get('/admin/departments', 'Admin::departments');
+$routes->get('/admin/departments/create', 'Admin::createDepartment');
+$routes->post('/admin/departments/store', 'Admin::storeDepartment');
+
+$routes->get('/admin/programs', 'Admin::programs');
+$routes->get('/admin/programs/create', 'Admin::createProgram');
+$routes->post('/admin/programs/store', 'Admin::storeProgram');
+
+// Admin - student records
+$routes->get('/admin/student-records', 'Admin::studentRecords');
+$routes->get('/admin/student-records/create', 'Admin::createStudentRecord');
+$routes->post('/admin/student-records/store', 'Admin::storeStudentRecord');
+
+// API - academic structure (used by admin course offering form)
+$routes->get('/api/semesters/by-year/(:num)', 'AcademicApi::semestersByYear/$1');
+$routes->get('/api/terms/by-semester/(:num)', 'AcademicApi::termsBySemester/$1');
 
