@@ -22,7 +22,15 @@ class CreateAcademicYearsTable extends Migration
 
         $this->forge->addKey('id', true);
         $this->forge->addUniqueKey('name');
-        $this->forge->createTable('academic_years');
+        
+        try {
+            $this->forge->createTable('academic_years');
+        } catch (\CodeIgniter\Database\Exceptions\DatabaseException $e) {
+            if (strpos($e->getMessage(), 'already exists') !== false) {
+                return; // Table already exists, skip
+            }
+            throw $e;
+        }
     }
 
     public function down()

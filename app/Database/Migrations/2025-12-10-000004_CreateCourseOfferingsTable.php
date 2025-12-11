@@ -58,7 +58,15 @@ class CreateCourseOfferingsTable extends Migration
         $this->forge->addForeignKey('course_id', 'courses', 'id', 'CASCADE', 'RESTRICT');
         $this->forge->addForeignKey('term_id', 'terms', 'id', 'CASCADE', 'RESTRICT');
         $this->forge->addForeignKey('teacher_id', 'users', 'id', 'SET NULL', 'RESTRICT');
-        $this->forge->createTable('course_offerings');
+        
+        try {
+            $this->forge->createTable('course_offerings');
+        } catch (\CodeIgniter\Database\Exceptions\DatabaseException $e) {
+            if (strpos($e->getMessage(), 'already exists') !== false) {
+                return; // Table already exists, skip
+            }
+            throw $e;
+        }
     }
 
     public function down()

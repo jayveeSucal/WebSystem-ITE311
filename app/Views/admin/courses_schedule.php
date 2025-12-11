@@ -75,7 +75,52 @@
                                         <?= esc($course['course_number']) ?>
                                     </td>
                                     <td>
-                                        <?= $scheduleText !== '' ? esc($scheduleText) : '<span class="text-muted">Not scheduled</span>' ?>
+                                        <div class="schedule-display" id="schedule-<?= $course['id'] ?>">
+                                            <?php if ($scheduleText !== ''): ?>
+                                                <div class="fw-semibold">
+                                                    <?= esc($date) ?>
+                                                    <?php if (!empty($course['schedule_date'])): ?>
+                                                        <span class="text-primary">(<?= date('l', strtotime($course['schedule_date'])) ?>)</span>
+                                                    <?php endif; ?>
+                                                </div>
+                                                <div class="small text-muted"><?= esc($time) ?></div>
+                                            <?php else: ?>
+                                                <span class="text-muted">Not scheduled</span>
+                                            <?php endif; ?>
+                                        </div>
+                                        <div class="schedule-edit" id="schedule-edit-<?= $course['id'] ?>" style="display: none;">
+                                            <form class="schedule-edit-form" data-course-id="<?= $course['id'] ?>">
+                                                <div class="mb-2">
+                                                    <label class="form-label small">Date</label>
+                                                    <input type="date" 
+                                                           class="form-control form-control-sm schedule-date-input" 
+                                                           name="schedule_date" 
+                                                           id="schedule-date-<?= $course['id'] ?>"
+                                                           value="<?= esc($course['schedule_date'] ?? '') ?>" 
+                                                           required>
+                                                    <div class="day-name-display small text-primary fw-semibold mt-1" id="day-name-<?= $course['id'] ?>">
+                                                        <?php 
+                                                        if (!empty($course['schedule_date'])) {
+                                                            $dayName = date('l', strtotime($course['schedule_date']));
+                                                            echo esc($dayName);
+                                                        }
+                                                        ?>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-2">
+                                                    <label class="form-label small">Time</label>
+                                                    <input type="time" 
+                                                           class="form-control form-control-sm" 
+                                                           name="schedule_time" 
+                                                           value="<?= esc($course['schedule_time'] ?? '') ?>" 
+                                                           required>
+                                                </div>
+                                                <div class="btn-group btn-group-sm">
+                                                    <button type="submit" class="btn btn-success btn-sm">Save</button>
+                                                    <button type="button" class="btn btn-secondary btn-sm cancel-edit">Cancel</button>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </td>
                                     <td>
                                         <?= esc($course['teacher_name'] ?? 'Unassigned') ?>
@@ -91,8 +136,14 @@
                                     </td>
                                     <td class="text-center">
                                         <div class="btn-group btn-group-sm" role="group">
+                                            <button type="button" 
+                                                    class="btn btn-outline-info edit-schedule-btn" 
+                                                    data-course-id="<?= $course['id'] ?>"
+                                                    title="Edit Schedule">
+                                                <i class="bi bi-calendar-event"></i> Schedule
+                                            </button>
                                             <a href="<?= site_url('/courses/edit/' . $course['id']) ?>" class="btn btn-outline-primary">Edit</a>
-                                            <a href="<?= site_url('/course/enrolled') ?>" class="btn btn-outline-secondary">View Students</a>
+                                            <a href="<?= site_url('/course/enrolled?course_id=' . $course['id']) ?>" class="btn btn-outline-secondary">View Students</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -110,4 +161,122 @@
         </div>
     </div>
 </div>
+
+<?php if (session()->getFlashdata('schedule_success')): ?>
+    <div class="alert alert-success alert-dismissible fade show position-fixed top-0 start-50 translate-middle-x mt-3" role="alert" style="z-index: 9999;">
+        <?= esc(session()->getFlashdata('schedule_success')) ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+<?php endif; ?>
+
+<?php if (session()->getFlashdata('schedule_error')): ?>
+    <div class="alert alert-danger alert-dismissible fade show position-fixed top-0 start-50 translate-middle-x mt-3" role="alert" style="z-index: 9999;">
+        <?= esc(session()->getFlashdata('schedule_error')) ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+<?php endif; ?>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Function to update day name display
+    function updateDayName(dateInput) {
+        const courseId = dateInput.id.replace('schedule-date-', '');
+        const dayNameDiv = document.getElementById('day-name-' + courseId);
+        
+        if (dateInput.value && dayNameDiv) {
+            const date = new Date(dateInput.value + 'T00:00:00');
+            const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const dayName = dayNames[date.getDay()];
+            dayNameDiv.textContent = dayName;
+            dayNameDiv.style.display = 'block';
+        } else if (dayNameDiv) {
+            dayNameDiv.style.display = 'none';
+        }
+    }
+
+    // Initialize day names for existing dates
+    document.querySelectorAll('.schedule-date-input').forEach(input => {
+        if (input.value) {
+            updateDayName(input);
+        }
+        
+        // Update day name when date changes
+        input.addEventListener('change', function() {
+            updateDayName(this);
+        });
+    });
+
+    // Handle edit schedule button clicks
+    document.querySelectorAll('.edit-schedule-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const courseId = this.getAttribute('data-course-id');
+            const displayDiv = document.getElementById('schedule-' + courseId);
+            const editDiv = document.getElementById('schedule-edit-' + courseId);
+            
+            if (displayDiv && editDiv) {
+                displayDiv.style.display = 'none';
+                editDiv.style.display = 'block';
+                
+                // Update day name when opening edit form
+                const dateInput = document.getElementById('schedule-date-' + courseId);
+                if (dateInput) {
+                    updateDayName(dateInput);
+                }
+            }
+        });
+    });
+
+    // Handle cancel button clicks
+    document.querySelectorAll('.cancel-edit').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const form = this.closest('.schedule-edit-form');
+            const courseId = form.getAttribute('data-course-id');
+            const displayDiv = document.getElementById('schedule-' + courseId);
+            const editDiv = document.getElementById('schedule-edit-' + courseId);
+            
+            if (displayDiv && editDiv) {
+                displayDiv.style.display = 'block';
+                editDiv.style.display = 'none';
+            }
+        });
+    });
+
+    // Handle form submissions
+    document.querySelectorAll('.schedule-edit-form').forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const courseId = this.getAttribute('data-course-id');
+            const formData = new FormData(this);
+            formData.append('course_id', courseId);
+            
+            // Add CSRF token
+            const csrfName = '<?= csrf_token() ?>';
+            const csrfHash = '<?= csrf_hash() ?>';
+            formData.append(csrfName, csrfHash);
+            
+            fetch('<?= base_url('admin/courses/schedule/update') ?>', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Reload the page to show updated schedule
+                    window.location.reload();
+                } else {
+                    alert('Error: ' + (data.message || 'Failed to update schedule'));
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while updating the schedule.');
+            });
+        });
+    });
+});
+</script>
 <?= $this->endSection() ?>

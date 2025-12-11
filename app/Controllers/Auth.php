@@ -178,12 +178,120 @@ class Auth extends BaseController
                 $data['courses'] = $this->courseModel->getAllCourses();
             }
 
+            if ($role === 'teacher' || $role === 'instructor') {
+                $db = \Config\Database::connect();
+                $userId = (int) $session->get('userId');
+                
+                // Get courses assigned to this teacher
+                $assignedCourses = [];
+                if ($db->tableExists('courses')) {
+                    $columns = $db->getFieldNames('courses');
+                    $hasUnits = in_array('units', $columns);
+                    
+                    $selectFields = 'c.*';
+                    if ($hasUnits) {
+                        $selectFields .= ', c.units';
+                    }
+                    
+                    $assignedCourses = $db->table('courses c')
+                        ->select($selectFields)
+                        ->where('c.user_id', $userId)
+                        ->orderBy('c.academic_year', 'DESC')
+                        ->orderBy('c.semester', 'ASC')
+                        ->orderBy('c.term', 'ASC')
+                        ->get()
+                        ->getResultArray();
+                }
+                
+                // Get current academic period
+                $currentAcademicPeriod = null;
+                if ($db->tableExists('academic_years') && $db->tableExists('semesters') && $db->tableExists('terms')) {
+                    // Try to get current year first
+                    $currentYear = $db->table('academic_years')
+                        ->where('is_current', 1)
+                        ->orderBy('year_start', 'DESC')
+                        ->limit(1)
+                        ->get()
+                        ->getRowArray();
+                    
+                    // If no current year, get the most recent one
+                    if (!$currentYear) {
+                        $currentYear = $db->table('academic_years')
+                            ->orderBy('year_start', 'DESC')
+                            ->limit(1)
+                            ->get()
+                            ->getRowArray();
+                    }
+                    
+                    if ($currentYear) {
+                        // Get current semester (is_current = 1) or first semester
+                        $currentSemester = $db->table('semesters')
+                            ->where('academic_year_id', $currentYear['id'])
+                            ->where('is_current', 1)
+                            ->orderBy('sequence', 'ASC')
+                            ->limit(1)
+                            ->get()
+                            ->getRowArray();
+                        
+                        if (!$currentSemester) {
+                            $currentSemester = $db->table('semesters')
+                                ->where('academic_year_id', $currentYear['id'])
+                                ->orderBy('sequence', 'ASC')
+                                ->limit(1)
+                                ->get()
+                                ->getRowArray();
+                        }
+                        
+                        if ($currentSemester) {
+                            // Get current term (is_current = 1) or first term
+                            $currentTerm = $db->table('terms')
+                                ->where('semester_id', $currentSemester['id'])
+                                ->where('is_current', 1)
+                                ->orderBy('sequence', 'ASC')
+                                ->limit(1)
+                                ->get()
+                                ->getRowArray();
+                            
+                            if (!$currentTerm) {
+                                $currentTerm = $db->table('terms')
+                                    ->where('semester_id', $currentSemester['id'])
+                                    ->orderBy('sequence', 'ASC')
+                                    ->limit(1)
+                                    ->get()
+                                    ->getRowArray();
+                            }
+                            
+                            if ($currentTerm) {
+                                $currentAcademicPeriod = [
+                                    'year' => $currentYear,
+                                    'semester' => $currentSemester,
+                                    'term' => $currentTerm,
+                                ];
+                            }
+                        }
+                    }
+                }
+                
+                $data['assigned_courses'] = $assignedCourses;
+                $data['academic_period'] = $currentAcademicPeriod;
+            }
+
             if ($role === 'student') {
                 $enrollmentModel = new \App\Models\EnrollmentModel();
                 $materialModel = new \App\Models\MaterialModel();
                 $userId = (int) $session->get('userId');
                 $data['available_courses'] = $enrollmentModel->getAvailableCourses($userId);
-                $enrollments = $enrollmentModel->getUserEnrollments($userId);
+                // Get all enrollment types for students
+                $enrollments = $enrollmentModel->getApprovedEnrollments($userId);
+                // Get rejected enrollments to display in dashboard
+                $data['rejected_enrollments'] = $enrollmentModel->getRejectedEnrollments($userId);
+                // Get pending enrollments to display in dashboard
+                $data['pending_enrollments'] = $enrollmentModel->getPendingEnrollmentsForUser($userId);
+                // Store approved enrollments separately for the "My Enrolled Courses" section
+                $data['approved_enrollments'] = $enrollments;
+                
+                // Also keep the old enrollments variable for backward compatibility with existing search functionality
+                $data['enrollments'] = $enrollments;
 
                 $materials = [];
                 foreach ($enrollments as $enrollment) {

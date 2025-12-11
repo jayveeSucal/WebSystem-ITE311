@@ -66,6 +66,28 @@ class Course extends BaseController
             ])->setStatusCode(400);
         }
 
+        // Check for schedule conflict with other enrolled courses
+        if (!empty($course['schedule_date']) && !empty($course['schedule_time'])) {
+            $db = \Config\Database::connect();
+            $conflictingCourse = $db->table('enrollments e')
+                ->join('courses c', 'c.id = e.course_id')
+                ->where('e.user_id', $user_id)
+                ->where('e.status', 'approved')
+                ->where('c.schedule_date', $course['schedule_date'])
+                ->where('c.schedule_time', $course['schedule_time'])
+                ->where('e.course_id !=', $course_id)
+                ->select('c.title, c.course_number')
+                ->get()
+                ->getRowArray();
+
+            if ($conflictingCourse) {
+                return $this->response->setJSON([
+                    'success' => false,
+                    'message' => 'Schedule conflict: Mayroon ka nang enrolled course sa parehong schedule (' . $course['schedule_time'] . '). Course: ' . $conflictingCourse['title'] . ' (' . $conflictingCourse['course_number'] . ')'
+                ])->setStatusCode(400);
+            }
+        }
+
         $enrollmentData = [
             'user_id' => $user_id,
             'course_id' => $course_id,
@@ -244,8 +266,30 @@ class Course extends BaseController
             return redirect()->to(base_url('dashboard'));
         }
 
+        // Fetch academic years from database
+        $db = \Config\Database::connect();
+        $academicYears = [];
+        
+        if ($db->tableExists('academic_years')) {
+            $years = $db->table('academic_years')
+                ->orderBy('year_start', 'DESC')
+                ->get()
+                ->getResultArray();
+            
+            // Format academic years with display field
+            foreach ($years as $year) {
+                $academicYears[] = [
+                    'id' => $year['id'],
+                    'year_start' => $year['year_start'],
+                    'year_end' => $year['year_end'],
+                    'display' => $year['year_start'] . '-' . $year['year_end']
+                ];
+            }
+        }
+
         $data = [
             'title' => 'Create New Course',
+            'academicYears' => $academicYears,
             'user' => [
                 'name' => $session->get('userName'),
                 'email' => $session->get('userEmail'),
@@ -277,11 +321,40 @@ class Course extends BaseController
         $term = $this->request->getPost('term');
         $schedule_time = $this->request->getPost('schedule_time');
         $schedule_date = $this->request->getPost('schedule_date');
-        $course_number = $this->request->getPost('course_number');
+        $cn_number = $this->request->getPost('cn_number');
+        $course_number = trim($this->request->getPost('course_number'));
         $user_id = $session->get('userId');
 
         if (empty($title) || empty($description)) {
             return redirect()->back()->withInput()->with('error', 'Title and description are required.');
+        }
+
+        // Format Control Number: CN-XXXX (exactly 4 digits, pad with zeros)
+        if (!empty($cn_number)) {
+            // Ensure exactly 4 digits
+            $paddedNumber = str_pad($cn_number, 4, '0', STR_PAD_LEFT);
+            if (strlen($paddedNumber) > 4) {
+                $paddedNumber = substr($paddedNumber, -4); // Take last 4 digits if longer
+            }
+            $course_number = 'CN-' . $paddedNumber;
+        } elseif (empty($course_number)) {
+            return redirect()->back()->withInput()->with('error', 'Control Number (CN) is required.');
+        }
+
+        // Validate CN format - must be exactly CN-XXXX (4 digits)
+        if (!preg_match('/^CN-\d{4}$/', $course_number)) {
+            return redirect()->back()->withInput()->with('error', 'Invalid Control Number format. Dapat ay eksaktong 4 digits (e.g., CN-0001, CN-0123).');
+        }
+
+        // Check if control number already exists (must be unique)
+        $db = \Config\Database::connect();
+        $existingCourse = $db->table('courses')
+            ->where('course_number', $course_number)
+            ->get()
+            ->getRowArray();
+
+        if ($existingCourse) {
+            return redirect()->back()->withInput()->with('error', 'Control Number "' . $course_number . '" ay ginagamit na. Pumili ng ibang Control Number.');
         }
 
         $courseData = [
@@ -433,6 +506,20 @@ class Course extends BaseController
         if ($this->request->getMethod() === 'POST') {
             $file = $this->request->getFile('material');
             if ($file->isValid() && !$file->hasMoved()) {
+                // Validate file type - only PDF, PPT, PPTX allowed
+                $allowedExtensions = ['pdf', 'ppt', 'pptx'];
+                $fileExtension = $file->getClientExtension();
+                
+                if (!in_array(strtolower($fileExtension), $allowedExtensions)) {
+                    return redirect()->back()->with('error', 'Invalid file type. Only PDF, PPT, and PPTX files are allowed.');
+                }
+                
+                // Validate file size (10MB max)
+                $maxSize = 10 * 1024 * 1024; // 10MB in bytes
+                if ($file->getSize() > $maxSize) {
+                    return redirect()->back()->with('error', 'File size exceeds 10MB limit.');
+                }
+                
                 $newName = $file->getRandomName();
                 $file->move(WRITEPATH . 'uploads', $newName);
 
@@ -449,7 +536,7 @@ class Course extends BaseController
                     return redirect()->back()->with('error', 'Failed to upload material.');
                 }
             } else {
-                return redirect()->back()->with('error', 'Invalid file.');
+                return redirect()->back()->with('error', 'Invalid file or file upload failed.');
             }
         }
 

@@ -28,4 +28,16 @@ class Home extends BaseController
 
         return view('dashboard');
     }
+
+    public function debug()
+    {
+        // Debug page - show system information
+        $data = [
+            'title' => 'Debug Information',
+            'php_version' => phpversion(),
+            'codeigniter_version' => \CodeIgniter\CodeIgniter::CI_VERSION,
+            'environment' => ENVIRONMENT,
+        ];
+        return view('debug', $data);
+    }
 }

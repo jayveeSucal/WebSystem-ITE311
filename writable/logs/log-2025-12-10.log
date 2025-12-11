@@ -878,3 +878,629 @@ ORDER BY `p`.`code` ASC', [], false)
  9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
 11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-12-10 18:06:32 --> mysqli_sql_exception: Table 'academic_years' already exists in F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('CREATE TABLE `a...', 0)
+#1 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `a...')
+#2 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `a...')
+#3 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `a...')
+#4 F:\xammp\htdocs\ITE311-BAJARIAS\app\Database\Migrations\2025-12-10-000001_CreateAcademicYearsTable.php(25): CodeIgniter\Database\Forge->createTable('academic_years')
+#5 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MigrationRunner.php(876): App\Database\Migrations\CreateAcademicYearsTable->up()
+#6 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MigrationRunner.php(182): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 F:\xammp\htdocs\ITE311-BAJARIAS\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 F:\xammp\htdocs\ITE311-BAJARIAS\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 F:\xammp\htdocs\ITE311-BAJARIAS\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#11 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 F:\xammp\htdocs\ITE311-BAJARIAS\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+ERROR - 2025-12-10 18:11:48 --> mysqli_sql_exception: Table 'academic_years' already exists in F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('CREATE TABLE `a...', 0)
+#1 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `a...')
+#2 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `a...')
+#3 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `a...')
+#4 F:\xammp\htdocs\ITE311-BAJARIAS\app\Database\Migrations\2025-12-10-000001_CreateAcademicYearsTable.php(25): CodeIgniter\Database\Forge->createTable('academic_years')
+#5 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MigrationRunner.php(876): App\Database\Migrations\CreateAcademicYearsTable->up()
+#6 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MigrationRunner.php(182): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 F:\xammp\htdocs\ITE311-BAJARIAS\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 F:\xammp\htdocs\ITE311-BAJARIAS\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 F:\xammp\htdocs\ITE311-BAJARIAS\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#11 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 F:\xammp\htdocs\ITE311-BAJARIAS\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+ERROR - 2025-12-10 18:13:20 --> mysqli_sql_exception: Table 'academic_years' already exists in F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('CREATE TABLE `a...', 0)
+#1 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `a...')
+#2 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `a...')
+#3 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `a...')
+#4 F:\xammp\htdocs\ITE311-BAJARIAS\app\Database\Migrations\2025-12-10-000001_CreateAcademicYearsTable.php(25): CodeIgniter\Database\Forge->createTable('academic_years')
+#5 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MigrationRunner.php(876): App\Database\Migrations\CreateAcademicYearsTable->up()
+#6 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MigrationRunner.php(182): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 F:\xammp\htdocs\ITE311-BAJARIAS\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 F:\xammp\htdocs\ITE311-BAJARIAS\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 F:\xammp\htdocs\ITE311-BAJARIAS\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#11 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 F:\xammp\htdocs\ITE311-BAJARIAS\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+ERROR - 2025-12-10 18:15:25 --> mysqli_sql_exception: Table 'academic_years' already exists in F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('CREATE TABLE `a...', 0)
+#1 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `a...')
+#2 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `a...')
+#3 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\Forge.php(570): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `a...')
+#4 F:\xammp\htdocs\ITE311-BAJARIAS\app\Database\Migrations\2025-12-10-000001_CreateAcademicYearsTable.php(25): CodeIgniter\Database\Forge->createTable('academic_years')
+#5 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MigrationRunner.php(876): App\Database\Migrations\CreateAcademicYearsTable->up()
+#6 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MigrationRunner.php(182): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 F:\xammp\htdocs\ITE311-BAJARIAS\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 F:\xammp\htdocs\ITE311-BAJARIAS\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 F:\xammp\htdocs\ITE311-BAJARIAS\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#11 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 F:\xammp\htdocs\ITE311-BAJARIAS\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+ERROR - 2025-12-10 18:16:40 --> mysqli_sql_exception: Unknown column 'name' in 'where clause' in F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *\nFROM `...', 0)
+#1 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 F:\xammp\htdocs\ITE311-BAJARIAS\app\Database\Migrations\2025-12-10-000006_SeedAcademicStructure.php(14): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MigrationRunner.php(876): App\Database\Migrations\SeedAcademicStructure->up()
+#6 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MigrationRunner.php(182): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 F:\xammp\htdocs\ITE311-BAJARIAS\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 F:\xammp\htdocs\ITE311-BAJARIAS\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 F:\xammp\htdocs\ITE311-BAJARIAS\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#11 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 F:\xammp\htdocs\ITE311-BAJARIAS\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+ERROR - 2025-12-10 18:17:12 --> mysqli_sql_exception: Unknown column 'name' in 'where clause' in F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *\nFROM `...', 0)
+#1 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 F:\xammp\htdocs\ITE311-BAJARIAS\app\Database\Migrations\2025-12-10-000006_SeedAcademicStructure.php(14): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MigrationRunner.php(876): App\Database\Migrations\SeedAcademicStructure->up()
+#6 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MigrationRunner.php(182): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 F:\xammp\htdocs\ITE311-BAJARIAS\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 F:\xammp\htdocs\ITE311-BAJARIAS\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 F:\xammp\htdocs\ITE311-BAJARIAS\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#11 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 F:\xammp\htdocs\ITE311-BAJARIAS\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+ERROR - 2025-12-10 18:18:04 --> mysqli_sql_exception: Unknown column 'name' in 'where clause' in F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *\nFROM `...', 0)
+#1 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 F:\xammp\htdocs\ITE311-BAJARIAS\app\Database\Migrations\2025-12-10-000006_SeedAcademicStructure.php(14): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MigrationRunner.php(876): App\Database\Migrations\SeedAcademicStructure->up()
+#6 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MigrationRunner.php(182): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 F:\xammp\htdocs\ITE311-BAJARIAS\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 F:\xammp\htdocs\ITE311-BAJARIAS\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 F:\xammp\htdocs\ITE311-BAJARIAS\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#11 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 F:\xammp\htdocs\ITE311-BAJARIAS\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+ERROR - 2025-12-10 18:18:49 --> mysqli_sql_exception: Unknown column 'name' in 'where clause' in F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *\nFROM `...', 0)
+#1 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 F:\xammp\htdocs\ITE311-BAJARIAS\app\Database\Migrations\2025-12-10-000006_SeedAcademicStructure.php(14): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MigrationRunner.php(876): App\Database\Migrations\SeedAcademicStructure->up()
+#6 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MigrationRunner.php(182): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 F:\xammp\htdocs\ITE311-BAJARIAS\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 F:\xammp\htdocs\ITE311-BAJARIAS\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 F:\xammp\htdocs\ITE311-BAJARIAS\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#11 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 F:\xammp\htdocs\ITE311-BAJARIAS\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+ERROR - 2025-12-10 18:26:15 --> mysqli_sql_exception: Unknown column 'name' in 'where clause' in F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *\nFROM `...', 0)
+#1 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 F:\xammp\htdocs\ITE311-BAJARIAS\app\Database\Migrations\2025-12-10-000006_SeedAcademicStructure.php(14): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MigrationRunner.php(876): App\Database\Migrations\SeedAcademicStructure->up()
+#6 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MigrationRunner.php(182): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 F:\xammp\htdocs\ITE311-BAJARIAS\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 F:\xammp\htdocs\ITE311-BAJARIAS\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 F:\xammp\htdocs\ITE311-BAJARIAS\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#11 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 F:\xammp\htdocs\ITE311-BAJARIAS\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+ERROR - 2025-12-10 18:39:57 --> mysqli_sql_exception: Unknown column 'name' in 'where clause' in F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *\nFROM `...', 0)
+#1 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 F:\xammp\htdocs\ITE311-BAJARIAS\app\Database\Migrations\2025-12-10-000006_SeedAcademicStructure.php(14): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MigrationRunner.php(876): App\Database\Migrations\SeedAcademicStructure->up()
+#6 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MigrationRunner.php(182): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 F:\xammp\htdocs\ITE311-BAJARIAS\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 F:\xammp\htdocs\ITE311-BAJARIAS\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 F:\xammp\htdocs\ITE311-BAJARIAS\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#11 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 F:\xammp\htdocs\ITE311-BAJARIAS\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+ERROR - 2025-12-10 18:54:44 --> mysqli_sql_exception: Unknown column 'name' in 'where clause' in F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *\nFROM `...', 0)
+#1 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 F:\xammp\htdocs\ITE311-BAJARIAS\app\Database\Migrations\2025-12-10-000006_SeedAcademicStructure.php(14): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MigrationRunner.php(876): App\Database\Migrations\SeedAcademicStructure->up()
+#6 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MigrationRunner.php(182): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 F:\xammp\htdocs\ITE311-BAJARIAS\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 F:\xammp\htdocs\ITE311-BAJARIAS\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 F:\xammp\htdocs\ITE311-BAJARIAS\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#11 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 F:\xammp\htdocs\ITE311-BAJARIAS\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+ERROR - 2025-12-10 18:58:52 --> mysqli_sql_exception: Unknown column 'name' in 'where clause' in F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *\nFROM `...', 0)
+#1 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 F:\xammp\htdocs\ITE311-BAJARIAS\app\Database\Migrations\2025-12-10-000006_SeedAcademicStructure.php(14): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MigrationRunner.php(876): App\Database\Migrations\SeedAcademicStructure->up()
+#6 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MigrationRunner.php(182): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 F:\xammp\htdocs\ITE311-BAJARIAS\system\Commands\Database\Migrate.php(85): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 F:\xammp\htdocs\ITE311-BAJARIAS\system\CLI\Commands.php(74): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 F:\xammp\htdocs\ITE311-BAJARIAS\system\CLI\Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(388): CodeIgniter\CLI\Console->run()
+#11 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(133): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#12 F:\xammp\htdocs\ITE311-BAJARIAS\spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#13 {main}
+CRITICAL - 2025-12-10 19:31:38 --> Error: Call to undefined function set_select()
+[Method: GET, Route: courses/create]
+in APPPATH\Views\courses\create.php on line 56.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('courses/create', [], true)
+ 4 APPPATH\Controllers\Course.php(272): view('courses/create', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->create()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 19:31:48 --> Error: Call to undefined function set_select()
+[Method: GET, Route: courses/create]
+in APPPATH\Views\courses\create.php on line 56.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('courses/create', [], true)
+ 4 APPPATH\Controllers\Course.php(272): view('courses/create', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->create()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-12-10 19:34:59 --> mysqli_sql_exception: Unknown column 'name' in 'order clause' in F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *\nFROM `...', 0)
+#1 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 F:\xammp\htdocs\ITE311-BAJARIAS\app\Controllers\Admin.php(355): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\xammp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(933): App\Controllers\Admin->createCourseOffering()
+#6 F:\xammp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 F:\xammp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 F:\xammp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2025-12-10 19:34:59 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'name' in 'order clause'
+[Method: GET, Route: admin/courses/offering/create]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC', [], false)
+ 2 APPPATH\Controllers\Admin.php(355): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->createCourseOffering()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 19:34:59 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'name' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC', [], false)
+ 4 APPPATH\Controllers\Admin.php(355): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->createCourseOffering()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 19:34:59 --> [Caused by] mysqli_sql_exception: Unknown column 'name' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC', [], false)
+ 5 APPPATH\Controllers\Admin.php(355): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->createCourseOffering()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-12-10 19:40:04 --> mysqli_sql_exception: Unknown column 'name' in 'order clause' in F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *\nFROM `...', 0)
+#1 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 F:\xammp\htdocs\ITE311-BAJARIAS\app\Controllers\Admin.php(437): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\xammp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(933): App\Controllers\Admin->createCourseOffering()
+#6 F:\xammp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 F:\xammp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 F:\xammp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2025-12-10 19:40:04 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'name' in 'order clause'
+[Method: GET, Route: admin/courses/offering/create]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC', [], false)
+ 2 APPPATH\Controllers\Admin.php(437): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->createCourseOffering()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 19:40:04 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'name' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC', [], false)
+ 4 APPPATH\Controllers\Admin.php(437): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->createCourseOffering()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 19:40:04 --> [Caused by] mysqli_sql_exception: Unknown column 'name' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC', [], false)
+ 5 APPPATH\Controllers\Admin.php(437): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->createCourseOffering()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-12-10 21:18:18 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`lms_bajarias`.`courses`, CONSTRAINT `courses_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `courses...', 0)
+#1 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `courses...')
+#2 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `courses...')
+#3 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `courses...', Array, false)
+#4 F:\xammp\htdocs\ITE311-BAJARIAS\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 F:\xammp\htdocs\ITE311-BAJARIAS\system\BaseModel.php(1025): CodeIgniter\Model->doUpdate(Array, Array)
+#6 F:\xammp\htdocs\ITE311-BAJARIAS\system\Model.php(860): CodeIgniter\BaseModel->update(Array, Array)
+#7 F:\xammp\htdocs\ITE311-BAJARIAS\app\Controllers\Admin.php(990): CodeIgniter\Model->update('6', Array)
+#8 F:\xammp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(933): App\Controllers\Admin->updateTeacherAssignment()
+#9 F:\xammp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 F:\xammp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 F:\xammp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-12-10 21:18:18 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`lms_bajarias`.`courses`, CONSTRAINT `courses_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+[Method: POST, Route: admin/teacher-assignments/update]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `courses` SET `user_id` = :user_id:, `updated_at` = :updated_at:
+WHERE `courses`.`id` IN :courses.id:', [...], false)
+ 2 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\Admin.php(990): CodeIgniter\Model->update('6', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->updateTeacherAssignment()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 21:18:18 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`lms_bajarias`.`courses`, CONSTRAINT `courses_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `courses` SET `user_id` = NULL, `updated_at` = \'2025-12-10 21:18:18\'
+WHERE `courses`.`id` IN (\'6\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `courses` SET `user_id` = NULL, `updated_at` = \'2025-12-10 21:18:18\'
+WHERE `courses`.`id` IN (\'6\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `courses` SET `user_id` = :user_id:, `updated_at` = :updated_at:
+WHERE `courses`.`id` IN :courses.id:', [...], false)
+ 4 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH\Controllers\Admin.php(990): CodeIgniter\Model->update('6', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->updateTeacherAssignment()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 21:18:18 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`lms_bajarias`.`courses`, CONSTRAINT `courses_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `courses` SET `user_id` = NULL, `updated_at` = \'2025-12-10 21:18:18\'
+WHERE `courses`.`id` IN (\'6\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `courses` SET `user_id` = NULL, `updated_at` = \'2025-12-10 21:18:18\'
+WHERE `courses`.`id` IN (\'6\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `courses` SET `user_id` = NULL, `updated_at` = \'2025-12-10 21:18:18\'
+WHERE `courses`.`id` IN (\'6\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `courses` SET `user_id` = :user_id:, `updated_at` = :updated_at:
+WHERE `courses`.`id` IN :courses.id:', [...], false)
+ 5 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Admin.php(990): CodeIgniter\Model->update('6', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->updateTeacherAssignment()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-12-10 21:18:21 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`lms_bajarias`.`courses`, CONSTRAINT `courses_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `courses...', 0)
+#1 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `courses...')
+#2 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `courses...')
+#3 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `courses...', Array, false)
+#4 F:\xammp\htdocs\ITE311-BAJARIAS\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 F:\xammp\htdocs\ITE311-BAJARIAS\system\BaseModel.php(1025): CodeIgniter\Model->doUpdate(Array, Array)
+#6 F:\xammp\htdocs\ITE311-BAJARIAS\system\Model.php(860): CodeIgniter\BaseModel->update(Array, Array)
+#7 F:\xammp\htdocs\ITE311-BAJARIAS\app\Controllers\Admin.php(990): CodeIgniter\Model->update('6', Array)
+#8 F:\xammp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(933): App\Controllers\Admin->updateTeacherAssignment()
+#9 F:\xammp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 F:\xammp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 F:\xammp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-12-10 21:18:21 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`lms_bajarias`.`courses`, CONSTRAINT `courses_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+[Method: POST, Route: admin/teacher-assignments/update]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `courses` SET `user_id` = :user_id:, `updated_at` = :updated_at:
+WHERE `courses`.`id` IN :courses.id:', [...], false)
+ 2 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\Admin.php(990): CodeIgniter\Model->update('6', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->updateTeacherAssignment()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 21:18:21 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`lms_bajarias`.`courses`, CONSTRAINT `courses_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `courses` SET `user_id` = NULL, `updated_at` = \'2025-12-10 21:18:21\'
+WHERE `courses`.`id` IN (\'6\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `courses` SET `user_id` = NULL, `updated_at` = \'2025-12-10 21:18:21\'
+WHERE `courses`.`id` IN (\'6\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `courses` SET `user_id` = :user_id:, `updated_at` = :updated_at:
+WHERE `courses`.`id` IN :courses.id:', [...], false)
+ 4 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH\Controllers\Admin.php(990): CodeIgniter\Model->update('6', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->updateTeacherAssignment()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 21:18:21 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`lms_bajarias`.`courses`, CONSTRAINT `courses_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `courses` SET `user_id` = NULL, `updated_at` = \'2025-12-10 21:18:21\'
+WHERE `courses`.`id` IN (\'6\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `courses` SET `user_id` = NULL, `updated_at` = \'2025-12-10 21:18:21\'
+WHERE `courses`.`id` IN (\'6\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `courses` SET `user_id` = NULL, `updated_at` = \'2025-12-10 21:18:21\'
+WHERE `courses`.`id` IN (\'6\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `courses` SET `user_id` = :user_id:, `updated_at` = :updated_at:
+WHERE `courses`.`id` IN :courses.id:', [...], false)
+ 5 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Admin.php(990): CodeIgniter\Model->update('6', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->updateTeacherAssignment()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-12-10 21:26:29 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`lms_bajarias`.`courses`, CONSTRAINT `courses_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `courses...', 0)
+#1 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `courses...')
+#2 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `courses...')
+#3 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `courses...', Array, false)
+#4 F:\xammp\htdocs\ITE311-BAJARIAS\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 F:\xammp\htdocs\ITE311-BAJARIAS\system\BaseModel.php(1025): CodeIgniter\Model->doUpdate(Array, Array)
+#6 F:\xammp\htdocs\ITE311-BAJARIAS\system\Model.php(860): CodeIgniter\BaseModel->update(Array, Array)
+#7 F:\xammp\htdocs\ITE311-BAJARIAS\app\Controllers\Admin.php(990): CodeIgniter\Model->update('6', Array)
+#8 F:\xammp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(933): App\Controllers\Admin->updateTeacherAssignment()
+#9 F:\xammp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 F:\xammp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 F:\xammp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-12-10 21:26:29 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`lms_bajarias`.`courses`, CONSTRAINT `courses_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+[Method: POST, Route: admin/teacher-assignments/update]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `courses` SET `user_id` = :user_id:, `updated_at` = :updated_at:
+WHERE `courses`.`id` IN :courses.id:', [...], false)
+ 2 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\Admin.php(990): CodeIgniter\Model->update('6', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->updateTeacherAssignment()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 21:26:29 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`lms_bajarias`.`courses`, CONSTRAINT `courses_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `courses` SET `user_id` = NULL, `updated_at` = \'2025-12-10 21:26:29\'
+WHERE `courses`.`id` IN (\'6\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `courses` SET `user_id` = NULL, `updated_at` = \'2025-12-10 21:26:29\'
+WHERE `courses`.`id` IN (\'6\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `courses` SET `user_id` = :user_id:, `updated_at` = :updated_at:
+WHERE `courses`.`id` IN :courses.id:', [...], false)
+ 4 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH\Controllers\Admin.php(990): CodeIgniter\Model->update('6', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->updateTeacherAssignment()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 21:26:29 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`lms_bajarias`.`courses`, CONSTRAINT `courses_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `courses` SET `user_id` = NULL, `updated_at` = \'2025-12-10 21:26:29\'
+WHERE `courses`.`id` IN (\'6\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `courses` SET `user_id` = NULL, `updated_at` = \'2025-12-10 21:26:29\'
+WHERE `courses`.`id` IN (\'6\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `courses` SET `user_id` = NULL, `updated_at` = \'2025-12-10 21:26:29\'
+WHERE `courses`.`id` IN (\'6\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `courses` SET `user_id` = :user_id:, `updated_at` = :updated_at:
+WHERE `courses`.`id` IN :courses.id:', [...], false)
+ 5 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Admin.php(990): CodeIgniter\Model->update('6', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->updateTeacherAssignment()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-12-10 22:28:07 --> mysqli_sql_exception: Unknown column 'name' in 'order clause' in F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *\nFROM `...', 0)
+#1 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 F:\xammp\htdocs\ITE311-BAJARIAS\app\Controllers\Admin.php(437): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\xammp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(933): App\Controllers\Admin->createCourseOffering()
+#6 F:\xammp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 F:\xammp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 F:\xammp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2025-12-10 22:28:07 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'name' in 'order clause'
+[Method: GET, Route: admin/courses/offering/create]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC', [], false)
+ 2 APPPATH\Controllers\Admin.php(437): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->createCourseOffering()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 22:28:07 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'name' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC', [], false)
+ 4 APPPATH\Controllers\Admin.php(437): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->createCourseOffering()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-10 22:28:07 --> [Caused by] mysqli_sql_exception: Unknown column 'name' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC', [], false)
+ 5 APPPATH\Controllers\Admin.php(437): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->createCourseOffering()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

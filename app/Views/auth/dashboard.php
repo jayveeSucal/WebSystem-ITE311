@@ -2,6 +2,7 @@
 
 <?= $this->section('content') ?>
 <div class="container mt-5">
+    <?php if ($role !== 'teacher' && $role !== 'instructor'): ?>
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="mb-0"><?= ucfirst($role) ?> Dashboard</h1>
         <a href="<?= base_url('logout') ?>" class="btn btn-danger">Logout</a>
@@ -11,14 +12,109 @@
         Welcome back, <strong><?= esc($user['name']) ?></strong>! 
         <span class="badge bg-secondary"><?= ucfirst($role) ?></span>
     </div>
+    <?php endif; ?>
 
     <!-- Alert container for dynamic messages -->
     <div id="alert-container"></div>
 
     <?php if ($role === 'student'): ?>
     <!-- Student Dashboard - Course Enrollment System -->
+    
+    <!-- My Enrolled Courses (Approved) Section -->
+    <?php if (isset($approved_enrollments) && !empty($approved_enrollments)): ?>
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card shadow-sm border-success">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">
+                        <i class="bi bi-check-circle"></i> My Enrolled Courses (Approved)
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="list-group">
+                        <?php foreach ($approved_enrollments as $enrollment): ?>
+                            <div class="list-group-item border-success">
+                                <div class="d-flex w-100 justify-content-between align-items-start">
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-1 text-success">
+                                            <i class="bi bi-check-circle-fill"></i> <?= esc($enrollment['title']) ?>
+                                            <?php if (!empty($enrollment['course_number'])): ?>
+                                                <span class="badge bg-secondary"><?= esc($enrollment['course_number']) ?></span>
+                                            <?php endif; ?>
+                                        </h6>
+                                        <?php if (!empty($enrollment['description'])): ?>
+                                            <p class="mb-1 text-muted small"><?= esc($enrollment['description']) ?></p>
+                                        <?php endif; ?>
+                                        <?php if (!empty($enrollment['approved_at'])): ?>
+                                            <small class="text-muted">
+                                                <i class="bi bi-calendar-check"></i> Approved: <?= date('M d, Y', strtotime($enrollment['approved_at'])) ?>
+                                            </small>
+                                        <?php endif; ?>
+                                    </div>
+                                    <small class="text-muted">
+                                        <?php if (!empty($enrollment['enrolled_at'])): ?>
+                                            Enrolled: <?= date('M d, Y', strtotime($enrollment['enrolled_at'])) ?>
+                                        <?php endif; ?>
+                                    </small>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
+
+    <!-- Pending Enrollment Requests Section -->
+    <?php if (isset($pending_enrollments) && !empty($pending_enrollments)): ?>
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="card shadow-sm border-warning">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="mb-0">
+                        <i class="bi bi-clock-history"></i> Pending Enrollment Requests
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-info" role="alert">
+                        <strong><i class="bi bi-info-circle"></i> Note:</strong> The following enrollment requests are awaiting instructor approval.
+                    </div>
+                    <div class="list-group">
+                        <?php foreach ($pending_enrollments as $pending): ?>
+                            <div class="list-group-item border-warning">
+                                <div class="d-flex w-100 justify-content-between align-items-start">
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-1 text-warning">
+                                            <i class="bi bi-hourglass-split"></i> <?= esc($pending['title']) ?>
+                                            <?php if (!empty($pending['course_number'])): ?>
+                                                <span class="badge bg-secondary"><?= esc($pending['course_number']) ?></span>
+                                            <?php endif; ?>
+                                        </h6>
+                                        <?php if (!empty($pending['description'])): ?>
+                                            <p class="mb-1 text-muted small"><?= esc($pending['description']) ?></p>
+                                        <?php endif; ?>
+                                    </div>
+                                    <small class="text-muted">
+                                        <i class="bi bi-calendar"></i> Requested: <?= date('M d, Y', strtotime($pending['enrolled_at'])) ?>
+                                    </small>
+                                </div>
+                                <div class="mt-2">
+                                    <span class="badge bg-warning text-dark">
+                                        <i class="bi bi-clock"></i> Awaiting Approval
+                                    </span>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
+
     <div class="row">
-        <!-- Enrolled Courses Section -->
+        <!-- Enrolled Courses Section (Old - keeping for search functionality) -->
         <div class="col-md-6">
             <div class="card shadow-sm border-0 mb-4">
                 <div class="card-header bg-primary text-white">
@@ -129,6 +225,58 @@
         </div>
     </div>
 
+    <!-- Rejected Enrollments Section -->
+    <?php if (isset($rejected_enrollments) && !empty($rejected_enrollments)): ?>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow-sm border-danger mb-4">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="mb-0">
+                        <i class="bi bi-x-circle"></i> Rejected Enrollment Requests
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-warning" role="alert">
+                        <strong>Note:</strong> The following enrollment requests have been rejected by the instructor.
+                    </div>
+                    <div class="list-group">
+                        <?php foreach ($rejected_enrollments as $rejected): ?>
+                            <div class="list-group-item border-danger">
+                                <div class="d-flex w-100 justify-content-between align-items-start mb-2">
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-1 text-danger">
+                                            <i class="bi bi-x-circle-fill"></i> <?= esc($rejected['title']) ?>
+                                            <?php if (!empty($rejected['course_number'])): ?>
+                                                <span class="badge bg-secondary"><?= esc($rejected['course_number']) ?></span>
+                                            <?php endif; ?>
+                                        </h6>
+                                        <?php if (!empty($rejected['description'])): ?>
+                                            <p class="mb-2 text-muted small"><?= esc($rejected['description']) ?></p>
+                                        <?php endif; ?>
+                                    </div>
+                                    <small class="text-muted">
+                                        <?php if (!empty($rejected['approved_at'])): ?>
+                                            Rejected: <?= date('M d, Y', strtotime($rejected['approved_at'])) ?>
+                                        <?php else: ?>
+                                            Rejected: <?= date('M d, Y', strtotime($rejected['enrolled_at'])) ?>
+                                        <?php endif; ?>
+                                    </small>
+                                </div>
+                                <?php if (!empty($rejected['rejection_reason'])): ?>
+                                    <div class="alert alert-danger mb-0 mt-2">
+                                        <strong><i class="bi bi-info-circle"></i> Rejection Reason:</strong>
+                                        <p class="mb-0 mt-1"><?= esc($rejected['rejection_reason']) ?></p>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
+
     <!-- Course Materials Section -->
     <div class="row">
         <div class="col-md-12">
@@ -157,35 +305,186 @@
         </div>
     </div>
 
-    <?php elseif ($role === 'teacher'): ?>
-    <!-- Teacher Dashboard -->
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card bg-info text-white">
-                <div class="card-body">
-                    <h5 class="card-title">My Courses</h5>
-                    <p class="card-text">Manage your courses and content</p>
-                    <a href="<?= base_url('courses') ?>" class="btn btn-light">View Courses</a>
+    <?php elseif ($role === 'teacher' || $role === 'instructor'): ?>
+    <!-- Teacher/Instructor Dashboard -->
+    
+    <!-- Welcome Banner -->
+    <div class="alert alert-success mb-4" role="alert">
+        <h4 class="mb-0">Welcome back, <?= esc($user['name']) ?>!</h4>
+    </div>
+
+    <!-- Active Academic Period -->
+    <?php if (!empty($academic_period)): ?>
+        <div class="card border-success mb-4">
+            <div class="card-header bg-success text-white d-flex align-items-center">
+                <i class="bi bi-check-square me-2"></i>
+                <strong>Active Academic Period</strong>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <strong>School Year:</strong> 
+                        <span class="text-primary"><?= esc($academic_period['year']['year_start']) ?>-<?= esc($academic_period['year']['year_end']) ?></span>
+                    </div>
+                    <div class="col-md-3">
+                        <strong>Semester:</strong> 
+                        <span class="text-primary"><?= esc($academic_period['semester']['name'] ?? 'Semester ' . $academic_period['semester']['sequence']) ?></span>
+                    </div>
+                    <div class="col-md-3">
+                        <strong>Term:</strong> 
+                        <span class="text-warning"><?= esc($academic_period['term']['name'] ?? 'Term ' . $academic_period['term']['sequence']) ?></span>
+                    </div>
+                    <div class="col-md-3">
+                        <?php if (!empty($academic_period['term']['start_date']) && !empty($academic_period['term']['end_date'])): ?>
+                            <strong>Term Start:</strong> <?= date('F d, Y', strtotime($academic_period['term']['start_date'])) ?><br>
+                            <strong>Term End:</strong> <?= date('F d, Y', strtotime($academic_period['term']['end_date'])) ?>
+                        <?php endif; ?>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card bg-warning text-white">
-                <div class="card-body">
-                    <h5 class="card-title">Upload Materials</h5>
-                    <p class="card-text">Upload files to your courses</p>
-                    <a href="<?= base_url('courses') ?>" class="btn btn-light">Upload</a>
+    <?php endif; ?>
+
+    <!-- Instructor Profile -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+                <div class="me-3">
+                    <i class="bi bi-person-circle" style="font-size: 3rem; color: #0d6efd;"></i>
+                </div>
+                <div class="flex-grow-1">
+                    <h3 class="mb-1">Welcome, <?= esc($user['name']) ?>!</h3>
+                    <span class="badge bg-primary">INSTRUCTOR</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <strong>Email:</strong> <?= esc($user['email']) ?>
+                </div>
+                <div class="col-md-6 text-end">
+                    <strong>Role:</strong> <?= ucfirst($role === 'instructor' ? 'Instructor' : 'Teacher') ?>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card bg-success text-white">
-                <div class="card-body">
-                    <h5 class="card-title">Create Course</h5>
-                    <p class="card-text">Add new course content</p>
-                    <a href="<?= base_url('courses/create') ?>" class="btn btn-light">Create</a>
-                </div>
+    </div>
+
+    <!-- Notification -->
+    <?php if (!empty($academic_period)): ?>
+        <div class="alert alert-info d-flex align-items-center mb-4" role="alert">
+            <i class="bi bi-check-circle-fill me-2" style="font-size: 1.5rem;"></i>
+            <div>
+                School Year <?= esc($academic_period['year']['year_start']) ?>-<?= esc($academic_period['year']['year_end']) ?> is now open! You can now be assigned to courses for this academic period.
             </div>
+        </div>
+    <?php endif; ?>
+
+    <!-- Pending Enrollments Alert -->
+    <?php
+    $db = \Config\Database::connect();
+    $teacher_id = session()->get('userId');
+    $pendingCount = 0;
+    if ($db->tableExists('enrollments') && $db->tableExists('courses')) {
+        $pendingCount = $db->table('enrollments e')
+            ->join('courses c', 'c.id = e.course_id')
+            ->where('c.user_id', $teacher_id)
+            ->where('e.status', 'pending')
+            ->countAllResults();
+    }
+    ?>
+    <?php if ($pendingCount > 0): ?>
+        <div class="alert alert-warning d-flex align-items-center mb-4" role="alert">
+            <i class="bi bi-exclamation-triangle-fill me-2" style="font-size: 1.5rem;"></i>
+            <div class="flex-grow-1">
+                <strong>You have <?= $pendingCount ?> pending enrollment<?= $pendingCount > 1 ? 's' : '' ?> awaiting your approval.</strong>
+            </div>
+            <a href="<?= base_url('courses/pending-enrollments') ?>" class="btn btn-warning">Review Enrollments</a>
+        </div>
+    <?php endif; ?>
+
+    <!-- My Assigned Courses -->
+    <div class="card">
+        <div class="card-header">
+            <h5 class="mb-0">My Assigned Courses</h5>
+        </div>
+        <div class="card-body">
+            <?php if (!empty($assigned_courses)): ?>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>CN</th>
+                                <th>Course Title</th>
+                                <th>Units</th>
+                                <th>Time</th>
+                                <th>Description</th>
+                                <th>School Year</th>
+                                <th>Semester</th>
+                                <th>Term</th>
+                                <th>Created</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($assigned_courses as $course): ?>
+                                <tr>
+                                    <td><?= esc($course['course_number'] ?? 'N/A') ?></td>
+                                    <td><strong><?= esc($course['title']) ?></strong></td>
+                                    <td>
+                                        <?php if (isset($course['units']) && $course['units'] !== null && $course['units'] > 0): ?>
+                                            <span class="badge bg-success"><?= esc($course['units']) ?> units</span>
+                                        <?php else: ?>
+                                            <span class="text-muted">N/A</span>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <?php if (!empty($course['schedule_time'])): ?>
+                                            <?php 
+                                            $timeValue = $course['schedule_time'];
+                                            if (strpos($timeValue, '-') !== false) {
+                                                list($start, $end) = explode('-', $timeValue);
+                                                $startFormatted = date('g:i A', strtotime($start));
+                                                $endFormatted = date('g:i A', strtotime($end));
+                                                echo esc($startFormatted . ' - ' . $endFormatted);
+                                            } else {
+                                                echo date('h:i A', strtotime($timeValue));
+                                            }
+                                            ?>
+                                        <?php else: ?>
+                                            <span class="text-muted">Not scheduled</span>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <?php if (!empty($course['description'])): ?>
+                                            <?= esc(substr($course['description'], 0, 50)) ?><?= strlen($course['description']) > 50 ? '...' : '' ?>
+                                        <?php else: ?>
+                                            <span class="text-muted">-</span>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td><?= esc($course['academic_year'] ?? 'N/A') ?></td>
+                                    <td><?= esc($course['semester'] ?? 'N/A') ?></td>
+                                    <td><?= esc($course['term'] ?? 'N/A') ?></td>
+                                    <td>
+                                        <?php if (!empty($course['created_at'])): ?>
+                                            <?= date('M d, Y', strtotime($course['created_at'])) ?>
+                                        <?php else: ?>
+                                            <span class="text-muted">N/A</span>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <a href="<?= base_url('courses/edit/' . $course['id']) ?>" class="btn btn-primary btn-sm">
+                                            <i class="bi bi-gear"></i> Manage Course
+                                        </a>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            <?php else: ?>
+                <div class="alert alert-info">
+                    You don't have any assigned courses yet. Contact an administrator to be assigned to courses.
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 
@@ -256,7 +555,7 @@
                 <div class="card-body d-flex flex-column">
                     <p class="mb-3">Manage school years, semesters, and terms</p>
                     <div class="mt-auto">
-                        <a href="<?= base_url('admin/academic') ?>" class="btn btn-primary w-100">Open</a>
+                        <a href="<?= base_url('admin/academic-structure') ?>" class="btn btn-primary w-100">Open</a>
                     </div>
                 </div>
             </div>
@@ -478,18 +777,26 @@ $(document).ready(function() {
 
     // Function to load enrolled courses via GET JSON
     function loadEnrolledCourses() {
-        $.get('<?= base_url('course/enrolled') ?>')
-            .done(function(response) {
-                if (response.success) {
-                    originalEnrolledCourses = response.enrollments;
-                    displayEnrolledCourses(response.enrollments);
-                } else {
-                    $('#enrolled-courses').html('<p class="text-muted">Error loading enrolled courses.</p>');
-                }
-            })
-            .fail(function() {
-                $('#enrolled-courses').html('<p class="text-muted">Error loading enrolled courses.</p>');
-            });
+        $.ajax({
+            url: '<?= base_url('course/enrolled') ?>',
+            method: 'GET',
+            dataType: 'json',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .done(function(response) {
+            if (response && response.success) {
+                originalEnrolledCourses = response.enrollments || [];
+                displayEnrolledCourses(response.enrollments || []);
+            } else {
+                $('#enrolled-courses').html('<p class="text-muted">You are not enrolled in any courses yet.</p>');
+            }
+        })
+        .fail(function(xhr, status, error) {
+            console.error('Error loading enrolled courses:', status, error);
+            $('#enrolled-courses').html('<p class="text-muted">You are not enrolled in any courses yet.</p>');
+        });
     }
 
     // Render enrolled courses list items

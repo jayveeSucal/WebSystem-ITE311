@@ -1,0 +1,402 @@
+CRITICAL - 2025-12-11 00:36:45 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\EnrollmentModel::getUserApprovedEnrollments
+[Method: GET, Route: course/enrolled]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Course.php(145): CodeIgniter\Model->__call('getUserApprovedEnrollments', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getEnrolledCourses()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 00:36:46 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\EnrollmentModel::getUserApprovedEnrollments
+[Method: GET, Route: course/enrolled]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Course.php(145): CodeIgniter\Model->__call('getUserApprovedEnrollments', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getEnrolledCourses()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 00:36:55 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\EnrollmentModel::getUserApprovedEnrollments
+[Method: GET, Route: course/enrolled]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Course.php(145): CodeIgniter\Model->__call('getUserApprovedEnrollments', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getEnrolledCourses()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 00:36:55 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\EnrollmentModel::getUserApprovedEnrollments
+[Method: GET, Route: course/enrolled]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Course.php(145): CodeIgniter\Model->__call('getUserApprovedEnrollments', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getEnrolledCourses()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 00:36:57 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\EnrollmentModel::getUserApprovedEnrollments
+[Method: GET, Route: course/enrolled]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Course.php(145): CodeIgniter\Model->__call('getUserApprovedEnrollments', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getEnrolledCourses()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 00:40:49 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\CourseModel::searchCourses
+[Method: GET, Route: course/search]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Course.php(230): CodeIgniter\Model->__call('searchCourses', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->search()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 00:41:00 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\CourseModel::searchCourses
+[Method: GET, Route: course/search]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Course.php(230): CodeIgniter\Model->__call('searchCourses', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->search()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 00:41:32 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\EnrollmentModel::getUserApprovedEnrollments
+[Method: GET, Route: course/enrolled]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Course.php(145): CodeIgniter\Model->__call('getUserApprovedEnrollments', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getEnrolledCourses()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 00:46:09 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\EnrollmentModel::getUserApprovedEnrollments
+[Method: GET, Route: course/enrolled]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Course.php(145): CodeIgniter\Model->__call('getUserApprovedEnrollments', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getEnrolledCourses()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 00:46:22 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\EnrollmentModel::getUserApprovedEnrollments
+[Method: GET, Route: course/enrolled]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Course.php(145): CodeIgniter\Model->__call('getUserApprovedEnrollments', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getEnrolledCourses()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 00:46:23 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\EnrollmentModel::getUserApprovedEnrollments
+[Method: GET, Route: course/enrolled]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Course.php(145): CodeIgniter\Model->__call('getUserApprovedEnrollments', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getEnrolledCourses()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 00:46:23 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\EnrollmentModel::getUserApprovedEnrollments
+[Method: GET, Route: course/enrolled]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Course.php(145): CodeIgniter\Model->__call('getUserApprovedEnrollments', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getEnrolledCourses()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 00:46:23 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\EnrollmentModel::getUserApprovedEnrollments
+[Method: GET, Route: course/enrolled]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Course.php(145): CodeIgniter\Model->__call('getUserApprovedEnrollments', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getEnrolledCourses()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 00:46:24 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\EnrollmentModel::getUserApprovedEnrollments
+[Method: GET, Route: course/enrolled]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Course.php(145): CodeIgniter\Model->__call('getUserApprovedEnrollments', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->getEnrolledCourses()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 01:17:50 --> ErrorException: Undefined variable $db
+[Method: POST, Route: courses/approve-enrollment/18]
+in APPPATH\Controllers\Course.php on line 771.
+ 1 APPPATH\Controllers\Course.php(771): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $db', 'F:\\xammp\\htdocs\\ITE311-BAJARIAS\\app\\Controllers\\Course.php', 771)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->approveEnrollment('18')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 01:17:54 --> ErrorException: Undefined variable $db
+[Method: POST, Route: courses/approve-enrollment/18]
+in APPPATH\Controllers\Course.php on line 771.
+ 1 APPPATH\Controllers\Course.php(771): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $db', 'F:\\xammp\\htdocs\\ITE311-BAJARIAS\\app\\Controllers\\Course.php', 771)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->approveEnrollment('18')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 01:18:00 --> ErrorException: Undefined variable $db
+[Method: POST, Route: courses/approve-enrollment/18]
+in APPPATH\Controllers\Course.php on line 771.
+ 1 APPPATH\Controllers\Course.php(771): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $db', 'F:\\xammp\\htdocs\\ITE311-BAJARIAS\\app\\Controllers\\Course.php', 771)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->approveEnrollment('18')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 01:18:03 --> ErrorException: Undefined variable $db
+[Method: POST, Route: courses/approve-enrollment/15]
+in APPPATH\Controllers\Course.php on line 771.
+ 1 APPPATH\Controllers\Course.php(771): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $db', 'F:\\xammp\\htdocs\\ITE311-BAJARIAS\\app\\Controllers\\Course.php', 771)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->approveEnrollment('15')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 01:18:16 --> ErrorException: Undefined variable $db
+[Method: POST, Route: courses/approve-enrollment/16]
+in APPPATH\Controllers\Course.php on line 771.
+ 1 APPPATH\Controllers\Course.php(771): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $db', 'F:\\xammp\\htdocs\\ITE311-BAJARIAS\\app\\Controllers\\Course.php', 771)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->approveEnrollment('16')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 01:18:34 --> ErrorException: Undefined variable $db
+[Method: POST, Route: courses/approve-enrollment/18]
+in APPPATH\Controllers\Course.php on line 771.
+ 1 APPPATH\Controllers\Course.php(771): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $db', 'F:\\xammp\\htdocs\\ITE311-BAJARIAS\\app\\Controllers\\Course.php', 771)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->approveEnrollment('18')
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 03:30:45 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\CourseModel::searchCourses
+[Method: GET, Route: course/search]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Course.php(149): CodeIgniter\Model->__call('searchCourses', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->search()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 03:30:47 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\CourseModel::searchCourses
+[Method: GET, Route: course/search]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Course.php(149): CodeIgniter\Model->__call('searchCourses', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->search()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 03:30:47 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\CourseModel::searchCourses
+[Method: GET, Route: course/search]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Course.php(149): CodeIgniter\Model->__call('searchCourses', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->search()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 03:30:47 --> CodeIgniter\Exceptions\BadMethodCallException: Call to undefined method App\Models\CourseModel::searchCourses
+[Method: GET, Route: course/search]
+in SYSTEMPATH\Model.php on line 927.
+ 1 APPPATH\Controllers\Course.php(149): CodeIgniter\Model->__call('searchCourses', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->search()
+ 3 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 03:31:01 --> Error: Call to undefined function set_select()
+[Method: GET, Route: courses/create]
+in APPPATH\Views\courses\create.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('courses/create', [], true)
+ 4 APPPATH\Controllers\Course.php(255): view('courses/create', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->create()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 03:31:26 --> Error: Call to undefined function set_select()
+[Method: GET, Route: courses/create]
+in APPPATH\Views\courses\create.php on line 70.
+ 1 SYSTEMPATH\View\View.php(226): include()
+ 2 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('courses/create', [], true)
+ 4 APPPATH\Controllers\Course.php(255): view('courses/create', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Course->create()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Course))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-12-11 04:31:15 --> mysqli_sql_exception: Unknown column 'name' in 'order clause' in F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *\nFROM `...', 0)
+#1 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 F:\xammp\htdocs\ITE311-BAJARIAS\app\Controllers\Admin.php(504): CodeIgniter\Database\BaseBuilder->get()
+#5 F:\xammp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(933): App\Controllers\Admin->createCourseOffering()
+#6 F:\xammp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#7 F:\xammp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#9 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 F:\xammp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 {main}
+CRITICAL - 2025-12-11 04:31:15 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'name' in 'order clause'
+[Method: GET, Route: admin/courses/offering/create]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC', [], false)
+ 2 APPPATH\Controllers\Admin.php(504): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->createCourseOffering()
+ 4 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 04:31:15 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'name' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC', [], false)
+ 4 APPPATH\Controllers\Admin.php(504): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->createCourseOffering()
+ 6 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 7 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 04:31:15 --> [Caused by] mysqli_sql_exception: Unknown column 'name' in 'order clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1649): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `academic_years`
+ORDER BY `name` DESC', [], false)
+ 5 APPPATH\Controllers\Admin.php(504): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->createCourseOffering()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ERROR - 2025-12-11 04:38:43 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`lms_bajarias`.`courses`, CONSTRAINT `courses_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `courses...', 0)
+#1 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `courses...')
+#2 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `courses...')
+#3 F:\xammp\htdocs\ITE311-BAJARIAS\system\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `courses...', Array, false)
+#4 F:\xammp\htdocs\ITE311-BAJARIAS\system\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+#5 F:\xammp\htdocs\ITE311-BAJARIAS\system\BaseModel.php(1025): CodeIgniter\Model->doUpdate(Array, Array)
+#6 F:\xammp\htdocs\ITE311-BAJARIAS\system\Model.php(860): CodeIgniter\BaseModel->update(Array, Array)
+#7 F:\xammp\htdocs\ITE311-BAJARIAS\app\Controllers\Admin.php(1415): CodeIgniter\Model->update('11', Array)
+#8 F:\xammp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(933): App\Controllers\Admin->updateTeacherAssignment()
+#9 F:\xammp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 F:\xammp\htdocs\ITE311-BAJARIAS\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 F:\xammp\htdocs\ITE311-BAJARIAS\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 F:\xammp\htdocs\ITE311-BAJARIAS\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2025-12-11 04:38:43 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`lms_bajarias`.`courses`, CONSTRAINT `courses_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+[Method: POST, Route: admin/teacher-assignments/update]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `courses` SET `user_id` = :user_id:, `updated_at` = :updated_at:
+WHERE `courses`.`id` IN :courses.id:', [...], false)
+ 2 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH\Controllers\Admin.php(1415): CodeIgniter\Model->update('11', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->updateTeacherAssignment()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 04:38:43 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`lms_bajarias`.`courses`, CONSTRAINT `courses_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `courses` SET `user_id` = NULL, `updated_at` = \'2025-12-11 04:38:43\'
+WHERE `courses`.`id` IN (\'11\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `courses` SET `user_id` = NULL, `updated_at` = \'2025-12-11 04:38:43\'
+WHERE `courses`.`id` IN (\'11\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `courses` SET `user_id` = :user_id:, `updated_at` = :updated_at:
+WHERE `courses`.`id` IN :courses.id:', [...], false)
+ 4 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH\Controllers\Admin.php(1415): CodeIgniter\Model->update('11', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->updateTeacherAssignment()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2025-12-11 04:38:43 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`lms_bajarias`.`courses`, CONSTRAINT `courses_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('UPDATE `courses` SET `user_id` = NULL, `updated_at` = \'2025-12-11 04:38:43\'
+WHERE `courses`.`id` IN (\'11\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `courses` SET `user_id` = NULL, `updated_at` = \'2025-12-11 04:38:43\'
+WHERE `courses`.`id` IN (\'11\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `courses` SET `user_id` = NULL, `updated_at` = \'2025-12-11 04:38:43\'
+WHERE `courses`.`id` IN (\'11\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2521): CodeIgniter\Database\BaseConnection->query('UPDATE `courses` SET `user_id` = :user_id:, `updated_at` = :updated_at:
+WHERE `courses`.`id` IN :courses.id:', [...], false)
+ 5 SYSTEMPATH\Model.php(461): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH\BaseModel.php(1025): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH\Model.php(860): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH\Controllers\Admin.php(1415): CodeIgniter\Model->update('11', [...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Admin->updateTeacherAssignment()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

@@ -47,7 +47,15 @@ class CreateStudentsTable extends Migration
 
         // Foreign keys are omitted here to avoid engine/ordering issues during migration.
         // Relations will still be enforced in application logic.
-        $this->forge->createTable('students');
+        
+        try {
+            $this->forge->createTable('students');
+        } catch (\CodeIgniter\Database\Exceptions\DatabaseException $e) {
+            if (strpos($e->getMessage(), 'already exists') !== false) {
+                return; // Table already exists, skip
+            }
+            throw $e;
+        }
     }
 
     public function down()

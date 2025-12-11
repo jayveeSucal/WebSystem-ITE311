@@ -26,7 +26,15 @@ class CreateSemestersTable extends Migration
 
         $this->forge->addKey('id', true);
         $this->forge->addForeignKey('academic_year_id', 'academic_years', 'id', 'CASCADE', 'RESTRICT');
-        $this->forge->createTable('semesters');
+        
+        try {
+            $this->forge->createTable('semesters');
+        } catch (\CodeIgniter\Database\Exceptions\DatabaseException $e) {
+            if (strpos($e->getMessage(), 'already exists') !== false) {
+                return; // Table already exists, skip
+            }
+            throw $e;
+        }
     }
 
     public function down()

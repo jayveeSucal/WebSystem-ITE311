@@ -22,7 +22,11 @@ class Notifications extends BaseController
 
         $userId = $session->get('userId');
         $count = $this->notificationModel->getUnreadCount($userId);
-        $notifications = $this->notificationModel->getNotificationsForUser($userId);
+        // Only get unread notifications for the dropdown
+        $notifications = $this->notificationModel->getNotificationsForUser($userId, true);
+
+        // Update session count to keep it in sync
+        $session->set('unreadNotifications', (int) $count);
 
         return $this->response->setJSON([
             'success' => true,

@@ -26,7 +26,15 @@ class CreateTermsTable extends Migration
 
         $this->forge->addKey('id', true);
         $this->forge->addForeignKey('semester_id', 'semesters', 'id', 'CASCADE', 'RESTRICT');
-        $this->forge->createTable('terms');
+        
+        try {
+            $this->forge->createTable('terms');
+        } catch (\CodeIgniter\Database\Exceptions\DatabaseException $e) {
+            if (strpos($e->getMessage(), 'already exists') !== false) {
+                return; // Table already exists, skip
+            }
+            throw $e;
+        }
     }
 
     public function down()

@@ -19,10 +19,15 @@ class NotificationModel extends Model
                     ->countAllResults();
     }
 
-    public function getNotificationsForUser($userId)
+    public function getNotificationsForUser($userId, $unreadOnly = false)
     {
-        return $this->where('user_id', $userId)
-                    ->orderBy('created_at', 'DESC')
+        $query = $this->where('user_id', $userId);
+        
+        if ($unreadOnly) {
+            $query->where('is_read', 0);
+        }
+        
+        return $query->orderBy('created_at', 'DESC')
                     ->limit(5)
                     ->findAll();
     }

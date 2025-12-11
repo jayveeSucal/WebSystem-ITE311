@@ -36,10 +36,16 @@ $routes->get('/courses/deleteMaterials/(:num)', 'Course::deleteMaterials/$1');
 // Course enrollment
 $routes->post('/course/enroll', 'Course::enroll');
 $routes->get('/course/enrolled', 'Course::getEnrolledCourses');
+$routes->post('/course/enrolled', 'Course::getEnrolledCourses');
 $routes->get('/course/search', 'Course::search');
 $routes->post('/course/search', 'Course::search');
 $routes->get('/course/getAvailableCourses', 'Course::getAvailableCourses');
 $routes->post('/course/getAvailableCourses', 'Course::getAvailableCourses');
+
+// Enrollment approval (for teachers)
+$routes->get('/courses/pending-enrollments', 'Course::pendingEnrollments');
+$routes->post('/courses/approve-enrollment/(:num)', 'Course::approveEnrollment/$1');
+$routes->post('/courses/reject-enrollment/(:num)', 'Course::rejectEnrollment/$1');
 
 // Materials management
 $routes->get('/courses/upload/(:num)', 'Course::upload/$1');
@@ -65,6 +71,22 @@ $routes->post('/admin/users/update/(:num)', 'Admin::updateUser/$1');
 
 // Admin - course schedule
 $routes->get('/admin/courses/schedule', 'Admin::courseSchedule');
+$routes->post('/admin/courses/schedule/update', 'Admin::updateCourseSchedule');
+
+// Admin - academic structure
+$routes->get('/admin/academic', 'Admin::academicStructure');
+$routes->get('/admin/academic-structure', 'Admin::academicStructure');
+$routes->post('/admin/academic-structure/save', 'Admin::saveAcademicStructure');
+
+// Admin - teacher assignments
+$routes->get('/admin/teacher-assignments', 'Admin::teacherAssignments');
+$routes->post('/admin/teacher-assignments/update', 'Admin::updateTeacherAssignment');
+$routes->post('/admin/teacher-assignments/quick-assign', 'Admin::quickAssignTeacher');
+$routes->get('/admin/teacher-assignments/available-teachers', 'Admin::getAvailableTeachers');
+$routes->post('/admin/teacher-assignments/available-teachers', 'Admin::getAvailableTeachers');
+
+// Admin - completed courses
+$routes->get('/admin/completed-courses', 'Admin::completedCourses');
 
 // Admin - course offerings
 $routes->get('/admin/courses/offering/create', 'Admin::createCourseOffering');

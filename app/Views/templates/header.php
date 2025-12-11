@@ -44,9 +44,9 @@
                     <div class="dropdown me-3">
                         <a class="btn btn-secondary dropdown-toggle position-relative" href="#" role="button" id="notificationsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                             Notifications
-                            <span id="notif-badge" class="badge bg-danger position-absolute top-0 start-100 translate-middle" style="display: <?= session('unreadNotifications') > 0 ? 'inline-block' : 'none' ?>;"><?= session('unreadNotifications') ?></span>
+                            <span id="notif-badge" class="badge bg-danger position-absolute top-0 start-100 translate-middle" style="display: none;">0</span>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown" style="width: 300px;">
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown" style="width: 300px;" id="notificationsDropdownMenu">
                             <li><div class="dropdown-header">Notifications</div></li>
                             <li><div id="notif-list" class="list-group list-group-flush"></div></li>
                             <li><div class="dropdown-footer text-center small text-muted p-2">Last 5 notifications</div></li>
@@ -65,7 +65,7 @@
                 $.getJSON('<?= site_url('/notifications') ?>')
                     .done(function(res) {
                         if (!res.success) return;
-                        var count = res.unread_count || 0;
+                        var count = parseInt(res.unread_count) || 0;
                         var $badge = $('#notif-badge');
                         if (count > 0) {
                             $badge.text(count).show();
@@ -75,25 +75,67 @@
 
                         var list = $('#notif-list');
                         list.empty();
-                        if (res.notifications && res.notifications.length) {
+                        // Since we're now only getting unread notifications from the server,
+                        // we can display all of them without filtering
+                        if (res.notifications && res.notifications.length > 0) {
                             res.notifications.forEach(function(n) {
-                                var item = $('<div>').addClass('list-group-item bg-dark text-light');
+                                var item = $('<div>').addClass('list-group-item bg-dark text-light').attr('data-notification-id', n.id);
                                 var msg = $('<div>').text(n.message);
                                 var time = $('<div>').addClass('small text-muted').text(n.created_at);
                                 var btn = $('<button>').addClass('btn btn-sm btn-outline-light mt-2').text('Mark as Read');
-                                btn.on('click', function() {
-                                    $.post('<?= site_url('/notifications/mark_read') ?>/' + n.id)
+                                btn.on('click', function(e) {
+                                    // Prevent dropdown from closing
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    
+                                    var $notificationItem = $(this).closest('.list-group-item');
+                                    var notificationId = $notificationItem.data('notification-id');
+                                    
+                                    var $btn = $(this);
+                                    
+                                    // Disable button to prevent double clicks
+                                    $btn.prop('disabled', true).text('Marking...');
+                                    
+                                    $.post('<?= site_url('/notifications/mark_read') ?>/' + notificationId)
                                         .done(function(resp) {
                                             if (resp.success) {
-                                                fetchNotifications();
+                                                // Remove the notification item immediately
+                                                $notificationItem.fadeOut(300, function() {
+                                                    $(this).remove();
+                                                    
+                                                    // Update badge count from response
+                                                    var newCount = parseInt(resp.unread_count) || 0;
+                                                    var $badge = $('#notif-badge');
+                                                    if (newCount > 0) {
+                                                        $badge.text(newCount).show();
+                                                    } else {
+                                                        $badge.hide();
+                                                    }
+                                                    
+                                                    // If no notifications left, show message
+                                                    if ($('#notif-list .list-group-item').length === 0) {
+                                                        $('#notif-list').append($('<div>').addClass('p-3 small text-muted').text('No unread notifications'));
+                                                    }
+                                                });
+                                            } else {
+                                                // Re-enable button if failed
+                                                $btn.prop('disabled', false).text('Mark as Read');
+                                                alert('Failed to mark as read. Please try again.');
                                             }
+                                        })
+                                        .fail(function() {
+                                            // Re-enable button if failed
+                                            $btn.prop('disabled', false).text('Mark as Read');
+                                            alert('Error marking notification as read. Please try again.');
                                         });
+                                    
+                                    return false;
                                 });
                                 item.append(msg).append(time).append(btn);
                                 list.append(item);
                             });
                         } else {
-                            list.append($('<div>').addClass('p-3 small text-muted').text('No notifications'));
+                            list.append($('<div>').addClass('p-3 small text-muted').text('No unread notifications'));
                         }
                     });
             }
